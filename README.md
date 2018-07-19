@@ -21,3 +21,4 @@ mvn clean install -Pjacoco
 mvn clean sonar:sonar -P sonar, jacoco
 
 
+Increase Heap size: -Xmx512m -XX:MaxPermSize=512m
