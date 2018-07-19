@@ -18,4 +18,6 @@ mvn checkstyle:checkstyle checkstyle:check -Dcheckstyle.failOnError=false
 
 mvn clean install -Pjacoco
 
+mvn clean sonar:sonar -P sonar, jacoco
+
 
