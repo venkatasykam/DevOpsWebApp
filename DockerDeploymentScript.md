@@ -2,7 +2,7 @@ docker login -u ${dockerId} -p ${dockerPwd}
 
 docker build -t devopswebapp:${releaseVersion} "${WORKSPACE}" -f "${Dockerfile}"
 
-imageId=$(docker images devopswebapp:1.0.3 -q)
+imageId=$(docker images devopswebapp:${releaseVersion} -q)
 
 echo imageId: ${imageId}
 
