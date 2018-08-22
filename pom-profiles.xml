@@ -1,0 +1,50 @@
+<!-- configure profiles in our pom files -->
+
+	<profiles> <!-- Profile ID should be unique -->
+		<profile>
+			<id>profileName1</id>  <!-- mvn clean install -P profileName1 --> 
+			
+			
+				<! -- <propeties> or/and <plugins> or/and <dependencies> or/and any other config -->
+			
+			
+		</profile>
+		<profile>
+			<id>profileName2</id> <!-- this profile will be executed only on windows machines or mvn clean install -P profileName -->
+			<activation>
+				<os>
+					<family>windows</family>
+				</os>
+			</activation>
+			
+			
+				<! -- <propeties> or <plugins> or <dependencies> or any other config -->
+			
+			
+		</profile>
+		<profile>
+			<id>dvnt</id>
+			<activation> <!-- mvn clean install -Denv=dvnttesting or mvn clean install -P dvnt -->
+				<property>
+					<name>env</name>
+					<value>dvnttesting</value>
+				</property>
+			</activation>
+			
+			
+				<! -- <propeties> or <plugins> or <dependencies> or any other config -->
+			
+			
+		</profile>
+		<profile>
+			<id>ts</id>
+			<activation> <!-- mvn clean install or mvn clean install -P ts -->
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			
+			
+				<! -- <propeties> or <plugins> or <dependencies> or any other config -->
+			
+			
+		</profile>
+	</profiles>

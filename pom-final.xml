@@ -1,0 +1,172 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.devops.app</groupId>
+	<artifactId>SampleJar</artifactId>
+	<version>${buildVersion}</version>
+	<packaging>jar</packaging>
+	<name>SampleJar-Practice</name>
+	<description>Its a sample jar for practice maven</description>
+
+	<properties>
+		<junitVersion>4.2</junitVersion>
+		<commons.lang3.version>3.3.2</commons.lang3.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junitVersion}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons.lang3.version}</version>
+		</dependency>
+	</dependencies> 
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>${basedir}/temp</directory> <!-- before you configure this, created a folder 'temp' under the project, and create some text files under this folder, by this you will know how to configure some addtion task to the clean plugin. By default clean goal removes the target folder only.-->
+							<includes>
+								<include>*.txt</include>
+							</includes>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+			<!-- practice - 1 : maven command : mvn clean install -->
+			<!-- Uncomment it while you practice it
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>2.17</version>
+			</plugin>
+			-->
+			<!-- practice - 2 : maven command : mvn clean install -->
+			<!-- Uncomment it while you practice it
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>2.17</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>checkstyle</goal>
+						</goals>
+					</execution>
+			</plugin>
+			-->
+			<!-- practice - 3 : maven command : mvn clean install -->
+			<!-- Uncomment it while you practice it
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>2.17</version>
+				<executions>
+					<execution>
+						<id>quality</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>checkstyle</goal>
+						</goals>
+					</execution>
+			</plugin>
+			-->
+			<!-- practice - 4 : maven command : mvn clean install -->
+			<!-- Uncomment it while you practice it 
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>2.17</version>
+				<configuration>
+					<failsOnError>false</failsOnError>
+				</configuration>
+				<executions>
+					<execution>
+						<id>quality</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>checkstyle</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			-->
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>checkstyleprofile</id>
+			<activation>
+				<os>
+					<family>windows</family>
+				</os>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-checkstyle-plugin</artifactId>
+						<version>2.17</version>
+						<configuration>
+							<failsOnError>false</failsOnError>
+						</configuration>
+						<executions>
+							<execution>
+								<id>quality1</id>
+								<phase>validate</phase>
+								<goals>
+									<goal>checkstyle</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>quality2</id>
+								<phase>package</phase>
+								<goals>
+									<goal>check</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>ap</id>
+			<activation>
+				<property>
+					<name>state</name>
+					<value>ap</value>
+				</property>
+			</activation>
+			<properties>
+				<buildVersion>1.0.0</buildVersion>
+			</properties>
+		</profile>
+		<profile>
+			<id>ts</id>
+			<activation>
+				<property>
+					<name>state</name>
+					<value>ts</value>
+				</property>
+			</activation>
+			<properties>
+				<buildVersion>2.0.0</buildVersion>
+			</properties>
+		</profile>
+	</profiles>
+</project>

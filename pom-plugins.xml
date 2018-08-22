@@ -1,0 +1,108 @@
+
+
+	<build>
+		<plugins>
+			<!-- https://maven.apache.org/guides/mini/guide-configuring-plugins.html -->
+			<!-- Configuration of any plugin syntax & its important tags -->
+			<plugin>
+				<groupId></groupId>
+				<artifactId></artifactId>
+				<version></version>
+				<inherited>false</inherited> (default value true)
+				<configuration>
+				</configuration>
+				<executions>
+					<execution>
+						<id></id>
+						<phase></phase>
+						<goals>
+							<goal></goal>
+							<goal></goal>
+							<goal></goal>
+							<goal></goal>
+						</goals>
+						<configuration>
+						</configuration>
+					</execution>
+				</executions>
+				<dependencies>
+				</dependencies>
+			</plugin>
+			<!-- Example Configuration of any maven plugin, practice as mention below and observer the build log. -->
+			<!-- practice - 1 : maven command : mvn clean install -->
+			<!-- copy & paste it in your pom file and see the output -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>2.17</version>
+			</plugin>
+
+			<!-- practice - 2 : maven command : mvn clean install -->
+			<!-- copy & paste it in your pom file and see the output -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>2.17</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>checkstyle</goal>
+						</goals>
+					</execution>
+			</plugin>
+
+			<!-- practice - 3 : maven command : mvn clean install -->
+			<!-- copy & paste it in your pom file and see the output -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>2.17</version>
+				<executions>
+					<execution>
+						<id>quality</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>checkstyle</goal>
+						</goals>
+					</execution>
+			</plugin>
+
+			<!-- practice - 4 :  maven command : mvn clean install -->
+			<!-- copy & paste it in your pom file and see the output -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>2.17</version>
+				<configuration>
+					<failsOnError>false</failsOnError>
+				</configuration>
+				<executions>
+					<execution>
+						<id>quality</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>checkstyle</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- Configuration of one of the maven lifecycle plugin -->
+			<!-- By default, clean plugin removed only the target folder, here we are giving addition behaviour to clean plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>${basedir}/temp</directory> <!-- before you configure this, created a folder 'temp' under the project, and create some text files under this folder, by this you will know how to configure some addtion task to the clean plugin. By default clean goal removes the target folder only.-->
+							<includes>
+								<include>*.txt</include>
+							</includes>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>

@@ -1,0 +1,34 @@
+
+
+<dependencies>
+	third party jars
+</dependencies>
+
+<!-- Maven will download the depenencies(configired as above) from below configured nexus repo details. -->
+<repositories>
+	Nexus repo details.
+</repositories>
+
+<!-- =================================== -->
+
+<build>
+	<plugins>
+		maven plugins
+	</plugins>
+
+	<pluginManagement>
+		maven plugins
+	</pluginManagement>
+</build>
+
+<!-- Maven will download the plugins(configired as above) from below configured nexus repo details. -->
+<pluginRepositories>
+	Nexus repo details.
+</pluginRepositories>
+
+<!-- =================================== -->
+
+<!-- to deploy/upload the packages/artifacts from build work space to nexus repo -->
+<distributionManagement>
+	Nexus repo details
+</distributionManagement>
