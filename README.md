@@ -25,7 +25,7 @@ clean verify sonar:sonar -Psonar,jacoco
 
 Increase Heap size: -Xmx512m -XX:MaxPermSize=512m
 
-# plugins
+### plugins
 
  mvn clean org.apache.maven.plugins:maven-compiler-plugin:3.1:compile
 
