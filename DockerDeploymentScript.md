@@ -10,4 +10,4 @@ docker tag ${imageId} venkatasykam/devopswebapp:${releaseVersion}
 
 docker push venkatasykam/devopswebapp:${releaseVersion}
 
-#docker run -d -it -p 8082:8080 devopswebapp:${releaseVersion}
+#docker run -d -it -p 8082:8080 venkatasykam/devopswebapp:${releaseVersion}
