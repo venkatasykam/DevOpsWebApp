@@ -1,0 +1,20 @@
+docker login -u ${dockerId} -p ${dockerPwd}
+
+docker build -t devopswebapp:${releaseVersion} "${WORKSPACE}" -f "${Dockerfile}"
+
+imageId=$(docker images devopswebapp:${releaseVersion} -q)
+
+echo imageId: ${imageId}
+
+docker tag ${imageId} ${dockerId}/devopswebapp:${releaseVersion}
+
+docker push ${dockerId}/devopswebapp:${releaseVersion}
+
+#docker run -d -it -p 8082:8080 venkatasykam/devopswebapp:${releaseVersion}
+
+
+kubectl create deployment devopsweb --image=venkatasykam/devopswebapp:${releaseVersion}
+
+kubectl create service nodeport devopsweb --tcp=8989:8080
+
+#kubectl set image deployment/devopsweb devopswebapp=venkatasykam/devopswebapp:1.0.15
