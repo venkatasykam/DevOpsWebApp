@@ -22,3 +22,6 @@ kubectl create deployment devopsweb --image=venkatasykam/devopswebapp:${releaseV
 
 # creating service for the deployment
 kubectl create service nodeport devopsweb --tcp=8989:8080
+
+# update the deploy
+# kubectl set image deployment/devopsweb devopswebapp=venkatasykam/devopswebapp:${releaseVersion}
