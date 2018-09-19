@@ -12,7 +12,14 @@
 		<!-- <argLine>-XX:MaxPermSize=512m</argLine> -->
 		<maven.compiler.source>1.6</maven.compiler.source>
     		<maven.compiler.target>1.6</maven.compiler.target>
+		<sonar.jdbc.url>jdbc:postgresql://18.217.28.35/sonar</sonar.jdbc.url>
+		<sonar.jdbc.driver>org.postgresql.Driver</sonar.jdbc.driver>
+		<sonar.jdbc.username>sonar</sonar.jdbc.username>
+		<sonar.jdbc.password>sonar</sonar.jdbc.password>
+		<!-- SERVER ON A REMOTE HOST -->
+		<sonar.host.url>http://18.217.28.35:9000</sonar.host.url>
 	</properties>
+
 	<scm>
 		<url>https://github.com/venkatasykam/DevOpsWebApp.git</url>
 		<connection>scm:git:https://github.com/venkatasykam/DevOpsWebApp.git</connection>
@@ -125,12 +132,12 @@
 				<activeByDefault>false</activeByDefault>
 			</activation>
 			<properties>
-				<sonar.jdbc.url>jdbc:postgresql://52.23.155.243/sonar</sonar.jdbc.url>
+				<sonar.jdbc.url>jdbc:postgresql://18.217.28.35/sonar</sonar.jdbc.url>
 				<sonar.jdbc.driver>org.postgresql.Driver</sonar.jdbc.driver>
 				<sonar.jdbc.username>sonar</sonar.jdbc.username>
 				<sonar.jdbc.password>sonar</sonar.jdbc.password>
 				<!-- SERVER ON A REMOTE HOST -->
-				<sonar.host.url>http://52.23.155.243:9000</sonar.host.url>
+				<sonar.host.url>http://18.217.28.35:9000</sonar.host.url>
 			</properties>
 		</profile>
 		<profile>
