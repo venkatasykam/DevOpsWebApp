@@ -7,10 +7,14 @@ public class DockerConnectMySQL {
 
 	static final String USER = "admin";
 	static final String PASS = "admin123";
+	
+	String sql = null;
 
 	private Connection conn = null;
 
-	public Connection getConnection(){
+	private Statement stmt = null;
+
+	public Statement getStatement(){
 
 		try{
 			Class.forName(JDBC_DRIVER);
@@ -19,22 +23,23 @@ public class DockerConnectMySQL {
 			conn = DriverManager.getConnection(DB_URL,USER,PASS);
 			System.out.println("Connected database successfully...");
 
+			stmt = conn.createStatement();
+
 		}catch(Exception e){
 			e.printStackTrace();
 		}
 
-		return conn;
+		return stmt;
 	}
 
-	public createTable(){
+	public void createTable(){
 
-		Statement stmt = null;
+		
 
 		try{
 
-			getConnection();
-			stmt = conn.createStatement();
-			String sql;
+			getStatement();
+			
 			sql = "CREATE TABLE USERS (uname VARCHAR(30) not NULL, firstname VARCHAR(255), lastname VARCHAR(255), password VARCHAR(8), PRIMARY KEY ( uname ))"; 
 
 			System.out.println("Creating table in given database...");
@@ -43,7 +48,7 @@ public class DockerConnectMySQL {
 
 			System.out.println("Inserting records into the table...");
 
-			String sql = "INSERT INTO USERS VALUES ('admin', 'admin', 'admin', 'admin123')";
+			sql = "INSERT INTO USERS VALUES ('admin', 'admin', 'admin', 'admin123')";
 			stmt.executeUpdate(sql);
 			System.out.println("Admin details inserted into table.");
 
@@ -69,19 +74,15 @@ public class DockerConnectMySQL {
 		}
 	}
 
-	public insertRecords(String uname, String firstname, String lastname, String password){
-
-		Statement stmt = null;
+	public void insertRecords(String uname, String firstname, String lastname, String password){
 
 		try{
 
-			getConnection();
-			stmt = conn.createStatement();
-			String sql;
+			getStatement();
 
 			System.out.println("Inserting records into the table...");
 
-			String sql = "INSERT INTO USERS VALUES ('"+uname+"','"+firstname+"','"+lastname+"','"+password+"'");
+			sql = "INSERT INTO USERS VALUES ('"+uname+"','"+firstname+"','"+lastname+"','"+password+"')";
 			int result = stmt.executeUpdate(sql);
 			System.out.println(result+" User details inserted into table.");
 
@@ -109,15 +110,12 @@ public class DockerConnectMySQL {
 
 	public String getUser(String uname,String password){
 
-		Statement stmt = null;
 		String userDetails = null;
 
 		try{
 
-			getConnection();
+			getStatement();
 
-			stmt = conn.createStatement();
-			String sql;
 			sql = "SELECT uname, firstname, lastname, password FROM USERS WHERE uname='"+uname+"'";
 			ResultSet rs = stmt.executeQuery(sql);
 			if(rs == null){

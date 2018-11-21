@@ -31,11 +31,10 @@ public class LoginServlet extends HttpServlet {
 		System.out.println("inputPwd: "+inputPwd);
 		
 
-		if(userCheck(inputUname,inputPwd)){
+		if(userExists(inputUname,inputPwd)){
 			RequestDispatcher rd=request.getRequestDispatcher("welcomeServlet");  
 			rd.forward(request,response);  
-		}  
-		else{  
+		}else{  
 			out.print("<h1><font color=red>Sorry username or password error</font></h1>");  
 			RequestDispatcher rd=request.getRequestDispatcher("LoginPage.html");  
 			rd.include(request,response);  
@@ -54,10 +53,10 @@ public class LoginServlet extends HttpServlet {
 			
 			bln = false;
 		
-		}esle{
+		}else{
 
-			String userDetailsArray = userDetails.split(":");
-			
+			String[] userDetailsArray = userDetails.split(":");
+
 			if(userDetailsArray[0].equals(inputUname) && userDetailsArray[3].equals(inputPwd)){
 				bln = true;
 			}

@@ -9,17 +9,17 @@ public class LoginServletTest extends TestCase{
 	public LoginServletTest(String name) {
 		super(name);
 	}
-	
-    @Test
-    public void testUserCheck(){
 
-        boolean booln = login.userCheck("devops2018","devops@2018");
+	@Test
+	public void testUserCheck(){
+
+		boolean booln = login.userExists("admin","admin123");
 
 		if(booln)
 			System.out.println("Login Success");
 		else System.out.println("Login Failed");
 
-        assertEquals(true, booln);
+		assertEquals(true, booln);
 
-    }
+	}
 }

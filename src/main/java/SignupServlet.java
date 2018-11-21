@@ -34,7 +34,7 @@ public class SignupServlet extends HttpServlet {
 		System.out.println("lastname: "+lastname);
 		System.out.println("userpwd: "+userpwd);
 
-		if(userCheck(inputUname,inputPwd)){
+		if(userExists(username,userpwd)){
 			out.print("<h1><font color=red>Sorry username already exists</font></h1>");
 			RequestDispatcher rd=request.getRequestDispatcher("signup.html");
 			rd.include(request,response);
@@ -58,10 +58,10 @@ public class SignupServlet extends HttpServlet {
 
 			bln = false;
 
-		}esle{
+		}else{
 
-			String userDetailsArray = userDetails.split(":");
-			
+			String[] userDetailsArray = userDetails.split(":");
+
 			if(userDetailsArray[0].equals(inputUname) && userDetailsArray[3].equals(inputPwd)){
 				bln = true;
 			}
