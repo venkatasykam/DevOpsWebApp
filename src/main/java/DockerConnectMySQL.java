@@ -1,58 +1,151 @@
 import java.sql.*;
 
 public class DockerConnectMySQL {
-   static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-   static final String DB_URL = "jdbc:mysql://db:3306/firstdb";
 
-   static final String USER = "user";
-   static final String PASS = "pass123";
+	static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
+	static final String DB_URL = "jdbc:mysql://db:3306/usersdb";
 
-   public static void main(String[] args) {
-   Connection conn = null;
-   Statement stmt = null;
-   try{
-      Class.forName(JDBC_DRIVER);
+	static final String USER = "admin";
+	static final String PASS = "admin123";
 
-      System.out.println("Connecting to database...");
-      conn = DriverManager.getConnection(DB_URL,USER,PASS);
+	private Connection conn = null;
 
-      stmt = conn.createStatement();
-      String sql;
-      sql = "SELECT PersonID, FirstName, LastName, Address, City FROM Persons";
-      ResultSet rs = stmt.executeQuery(sql);
+	public Connection getConnection(){
 
-      while(rs.next()){
-         int id  = rs.getInt("PersonID");
-         String first = rs.getString("FirstName");
-         String last = rs.getString("LastName");
-                 String address = rs.getString("Address");
-                 String city = rs.getString("City");
+		try{
+			Class.forName(JDBC_DRIVER);
 
-         System.out.println("ID: " + id);
-         System.out.println(", First: " + first);
-         System.out.println(", Last: " + last);
-                 System.out.println(", Address: " + address);
-                 System.out.println(", City: " + city);
-      }
-      rs.close();
-      stmt.close();
-      conn.close();
-   }catch(SQLException se){
-      se.printStackTrace();
-   }catch(Exception e){
-      e.printStackTrace();
-   }finally{
-      try{
-         if(stmt!=null)
-            stmt.close();
-      }catch(SQLException se2){
-      }
-      try{
-         if(conn!=null)
-            conn.close();
-      }catch(SQLException se){
-         se.printStackTrace();
-      }
-   }
- }
+			System.out.println("Connecting to database...");
+			conn = DriverManager.getConnection(DB_URL,USER,PASS);
+			System.out.println("Connected database successfully...");
+
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+
+		return conn;
+	}
+
+	public createTable(){
+
+		Statement stmt = null;
+
+		try{
+
+			getConnection();
+			stmt = conn.createStatement();
+			String sql;
+			sql = "CREATE TABLE USERS (uname VARCHAR(30) not NULL, firstname VARCHAR(255), lastname VARCHAR(255), password VARCHAR(8), PRIMARY KEY ( uname ))"; 
+
+			System.out.println("Creating table in given database...");
+			stmt.executeUpdate(sql);
+			System.out.println("Table Created successfully");
+
+			System.out.println("Inserting records into the table...");
+
+			String sql = "INSERT INTO USERS VALUES ('admin', 'admin', 'admin', 'admin123')";
+			stmt.executeUpdate(sql);
+			System.out.println("Admin details inserted into table.");
+
+		}catch(SQLException se){
+			se.printStackTrace();
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+
+			try{
+				if(stmt!=null)
+					stmt.close();
+			}catch(SQLException se){
+				se.printStackTrace();
+			}
+
+			try{
+				if(conn!=null)
+					conn.close();
+			}catch(SQLException se){
+				se.printStackTrace();
+			}
+		}
+	}
+
+	public insertRecords(String uname, String firstname, String lastname, String password){
+
+		Statement stmt = null;
+
+		try{
+
+			getConnection();
+			stmt = conn.createStatement();
+			String sql;
+
+			System.out.println("Inserting records into the table...");
+
+			String sql = "INSERT INTO USERS VALUES ('"+uname+"','"+firstname+"','"+lastname+"','"+password+"'");
+			int result = stmt.executeUpdate(sql);
+			System.out.println(result+" User details inserted into table.");
+
+		}catch(SQLException se){
+			se.printStackTrace();
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+
+			try{
+				if(stmt!=null)
+					stmt.close();
+			}catch(SQLException se){
+				se.printStackTrace();
+			}
+
+			try{
+				if(conn!=null)
+					conn.close();
+			}catch(SQLException se){
+				se.printStackTrace();
+			}
+		}
+	}
+
+	public String getUser(String uname,String password){
+
+		Statement stmt = null;
+		String userDetails = null;
+
+		try{
+
+			getConnection();
+
+			stmt = conn.createStatement();
+			String sql;
+			sql = "SELECT uname, firstname, lastname, password FROM USERS WHERE uname='"+uname+"'";
+			ResultSet rs = stmt.executeQuery(sql);
+
+			while(rs.next()){
+				userDetails = rs.getString("uname")+":"+rs.getString("firstname")+":"+rs.getString("lastname")+":"+rs.getString("password");
+			}
+			rs.close();
+			stmt.close();
+			conn.close();
+		}catch(SQLException se){
+			se.printStackTrace();
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			try{
+				if(stmt!=null)
+					stmt.close();
+			}catch(SQLException se){
+				se.printStackTrace();
+			}
+
+			try{
+				if(conn!=null)
+					conn.close();
+			}catch(SQLException se){
+				se.printStackTrace();
+			}
+		}
+	return userDetails;
+	}
 }
