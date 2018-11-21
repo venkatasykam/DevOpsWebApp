@@ -1,48 +1,11 @@
 # DevOpsWebApp
 
-mvn clean package
+mvn clean package -DskipTests=true 
 
-mvn clean verify
+docker run -d --name db -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=usersdb -e MYSQL_USER=admin -e MYSQL_PASSWORD=admin123 mysql
 
-mvn clean test
+docker exec -it db bash
 
-mvn clean install
+mysql -h 127.0.0.1 -P 3306 -uadmin -padmin123 usersdb
 
-mvn tomcat7:deploy (Make sure tomcat server is online)
-
-mvn checkstyle:checkstyle checkstyle:check
-
-mvn checkstyle:checkstyle checkstyle:check -Dcheckstyle.failOnViolation=false
-
-mvn checkstyle:checkstyle checkstyle:check -Dcheckstyle.failOnError=false
-
-mvn clean install -Pjacoco
-
-clean verify sonar:sonar -Psonar
-
-clean verify sonar:sonar -Psonar,jacoco
-
-
-Increase Heap size: -Xmx512m -XX:MaxPermSize=512m
-
-### plugins
-
- mvn clean org.apache.maven.plugins:maven-compiler-plugin:3.1:compile
-
- mvn clean compile org.apache.maven.plugins:maven-checkstyle-plugin:3.0.0:checkstyle
- 
- mvn clean compile org.apache.maven.plugins:maven-checkstyle-plugin:3.0.0:checkstyle org.apache.maven.plugins:maven-checkstyle-plugin:3.0.0:check
- 
- mvn clean compile checkstyle:checkstyle checkstyle:check
- 
- mvn clean checkstyle:checkstyle checkstyle:check install
- 
- jacoco - java code coverage
- 
-	 class wise
-	 
-	 method wise
-	 
-	 line wise
-	 
-	 block wise
+docker run --name devopswebdb-link --link db -p 8080:8080 devopswebdb:1.0 -d
