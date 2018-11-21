@@ -7,6 +7,9 @@
 		<h3>Find the <font color=red>DevOps Tools</font> list below.</h3>
 		<a href=LoginPage.html >Login</a>
 		<br/><br/>
+		Click <a href="signup.html">Signup</a>
+		<br/><br/> 
+		<br/><br/>
 		Click <a href="sample.html">here</a> to go to sample.html page.
 		<br/><br/> 
 		<a href=training.html>Go To Training Page</a>
@@ -25,7 +28,8 @@
 			<tr><td>9</td><td>Cloud Management portals</td><td>AWS, Azure, Cloud Foundry, Google Cloud Platform etc.</td></tr>
 			<tr><td>10</td><td>Configuration management Tools</td><td>ANSIBLE, PUPPET, CHEF, Salt, URBAN Code Deployment etc.</td></tr>
 			<tr><td>11</td><td>Monitoring tools</td><td>Grafana, Graphite, NAGIOS etc.</td></tr>
-			<tr><td>12</td><td>Containarizartion tools</td><td>Docker, Kubernetes, Vagrant, CoreOS and rkt, Apache Mesos and Mesosphere,Open Container Initiative (OCI), Panamax etc.</td></tr>
+			<tr><td>12</td><td>Containarizartion tools</td><td>Docker, CRI-O, CoreOS and rkt, etc.</td></tr>
+			<tr><td>12</td><td>>Containar Orchestration & Management</td><td>Docker Swarm, Kubernetes etc.</td></tr>
 		</table>
 		<br/><br/>
 		<table width="59%" border="1" align="center">
@@ -43,6 +47,7 @@
 			<tr><td>10</td><td>Configuration management Tools</td><td>ANSIBLE</td></tr>
 			<tr><td>11</td><td>Monitoring tools</td><td>NAGIOS</td></tr>
 			<tr><td>12</td><td>Containarizartion tools</td><td>Docker</td></tr>
+			<tr><td>13</td><td>Containar Orchestration & Management</td><td>Docker Swarm, Kubernetes etc</td></tr>
 		</table>
 	</body>
 </html>

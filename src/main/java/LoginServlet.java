@@ -9,6 +9,15 @@ import javax.servlet.http.HttpServletResponse;
   
   
 public class LoginServlet extends HttpServlet {
+	
+	public DockerConnectMySQL dcm = null;
+	
+	public LoginServlet(){
+		
+		DockerConnectMySQL dcm = new DockerConnectMySQL();
+		dcm.createTable();
+	
+	}
  
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  
 	  
@@ -35,20 +44,23 @@ public class LoginServlet extends HttpServlet {
 	out.close();  
 	}
 	
-	public boolean userCheck(String inputUname, String inputPwd){
+	public boolean userExists(String inputUname, String inputPwd){
 		
 		boolean bln = false;
 		
-		String expectedUname1 = "devops2018";
-		String expectedPwd1 = "devops@2018";
-
-		String expectedUname2 = "devops2019";
-		String expectedPwd2 = "devops@2019";
+		String userDetails = dcm.getUser(inputUname,inputPwd);
 		
-		if((inputUname.equalsIgnoreCase(expectedUname1) && inputPwd.equals(expectedPwd1)) || (inputUname.equalsIgnoreCase(expectedUname2) && inputPwd.equals(expectedPwd2))){
-			bln = true;
-		}else{
+		if(userDetails.equals("nouser")){
+			
 			bln = false;
+		
+		}esle{
+
+			String userDetailsArray = userDetails.split(":");
+			
+			if(userDetailsArray[0].equals(inputUname) && userDetailsArray[3].equals(inputPwd)){
+				bln = true;
+			}
 		}
 
 		return bln;
