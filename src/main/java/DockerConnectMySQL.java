@@ -34,19 +34,23 @@ public class DockerConnectMySQL {
 		return stmt;
 	}
 	
-	public boolean tableExists() throws Exception {
+	public boolean tableExists() {
 
 		String tableName = "users";
 
 		boolean bln = false;
+		try{
 
-		DatabaseMetaData dbm = conn.getMetaData();
-		ResultSet rs = dbm.getTables(null, null, tableName, null);
+			DatabaseMetaData dbm = conn.getMetaData();
+			ResultSet rs = dbm.getTables(null, null, tableName, null);
 
-		if (rs.next()) {
-			bln = true;
-		} else {
-			bln = false;
+			if (rs.next()) {
+				bln = true;
+			} else {
+				bln = false;
+			}
+		}catch(Exception e){
+			e.printStackTrace();
 		}
 	}
 
