@@ -13,6 +13,8 @@
 
     show tables;
     
+    select * from USERS;
+    
     docker rm $(docker ps -a -q) -f
 
     docker rmi $(docker images -q)
