@@ -13,4 +13,4 @@ mvn clean package -DskipTests=true -DreleaseVersion=1.0
 
 docker build -t devopswebapp:1.0-db -f DbWebDockerfile .
 
-docker run --name devopswebdb-link --link db -p 8080:8080 devopswebapp:1.0-db -d
+docker run -d --name devopsweb-db --link db -p 8080:8080 devopswebapp:1.0-db
