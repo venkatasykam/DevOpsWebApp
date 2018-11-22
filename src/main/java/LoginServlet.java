@@ -15,13 +15,6 @@ public class LoginServlet extends HttpServlet {
 	
 	public DockerConnectMySQL dcm = null;
 	
-	public void init(ServletConfig config){
-		
-		DockerConnectMySQL dcm = new DockerConnectMySQL();
-		dcm.createTable();
-	
-	}
- 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  
 	  
 		response.setContentType("text/html");  
@@ -49,6 +42,9 @@ public class LoginServlet extends HttpServlet {
 	public boolean userExists(String inputUname, String inputPwd){
 		
 		boolean bln = false;
+		
+		DockerConnectMySQL dcm = new DockerConnectMySQL();
+		dcm.createTable();
 		
 		String userDetails = dcm.getUser(inputUname,inputPwd);
 		
