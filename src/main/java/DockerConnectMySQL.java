@@ -142,13 +142,19 @@ public class DockerConnectMySQL {
 
 			sql = "SELECT uname, firstname, lastname, password FROM USERS WHERE uname='"+uname+"'";
 			ResultSet rs = stmt.executeQuery(sql);
+			if (rs.next()) {
+				userDetails = rs.getString("uname")+":"+rs.getString("firstname")+":"+rs.getString("lastname")+":"+rs.getString("password");
+			} else {
+				userDetails = "nouser";
+			}
+			/*
 			if(rs == null){
 				userDetails = "nouser";
 			}else{
 				while(rs.next()){
 					userDetails = rs.getString("uname")+":"+rs.getString("firstname")+":"+rs.getString("lastname")+":"+rs.getString("password");
 				}
-			}
+			}*/
 			rs.close();
 			stmt.close();
 			conn.close();
