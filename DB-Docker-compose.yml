@@ -6,6 +6,8 @@ services:
      volumes:
        - devopswebapp_db_data:/var/lib/mysql
      restart: always
+     networks:
+      - overlay
      environment:
        MYSQL_ROOT_PASSWORD: root
        MYSQL_DATABASE: usersdb
@@ -18,10 +20,15 @@ services:
       dockerfile: DbWebDockerfile
     depends_on:
        - db
-    image: devopswebapp:1.0
+    image: devopswebapp
+    networks:
+      - overlay
     container_name: devopswebapp_db
     ports:
       - "8181:8080"
 
 volumes:
     devopswebapp_db_data:
+
+networks:
+  overlay:
