@@ -1,4 +1,6 @@
 import java.sql.*;
+import java.sql.DatabaseMetaData;
+import java.sql.DriverManager;
 
 public class DockerConnectMySQL {
 
@@ -31,27 +33,49 @@ public class DockerConnectMySQL {
 
 		return stmt;
 	}
+	
+	public boolean tableExists() throws Exception {
+
+		String tableName = "users";
+
+		boolean bln = false;
+
+		DatabaseMetaData dbm = conn.getMetaData();
+		ResultSet rs = dbm.getTables(null, null, tableName, null);
+
+		if (rs.next()) {
+			bln = true;
+		} else {
+			bln = false;
+		}
+	}
 
 	public void createTable(){
-
-		
 
 		try{
 
 			getStatement();
 			
-			sql = "CREATE TABLE USERS (uname VARCHAR(30) not NULL, firstname VARCHAR(255), lastname VARCHAR(255), password VARCHAR(8), PRIMARY KEY ( uname ))"; 
+			if(tableExists()){
+				System.out.println("Table Exists");
+			}else{
+				sql = "CREATE TABLE USERS (uname VARCHAR(30) not NULL, firstname VARCHAR(255), lastname VARCHAR(255), password VARCHAR(8), PRIMARY KEY ( uname ))"; 
 
-			System.out.println("Creating table in given database...");
-			stmt.executeUpdate(sql);
-			System.out.println("Table Created successfully");
+				System.out.println("Creating table in given database...");
+				stmt.executeUpdate(sql);
+				System.out.println("Table Created successfully");
+			}
 
-			System.out.println("Inserting records into the table...");
+			String userDetails = getUser("admin", "admin123");
 
-			sql = "INSERT INTO USERS VALUES ('admin', 'admin', 'admin', 'admin123')";
-			stmt.executeUpdate(sql);
-			System.out.println("Admin details inserted into table.");
-
+			if(userDetails.equals("nouser")){
+				System.out.println("Inserting records into the table...");
+				sql = "INSERT INTO USERS VALUES ('admin', 'admin', 'admin', 'admin123')";
+				stmt.executeUpdate(sql);
+				System.out.println("Admin details inserted into table.");
+			}else{
+				System.out.println("admin User Exists");
+			}
 		}catch(SQLException se){
 			se.printStackTrace();
 		}catch(Exception e){
