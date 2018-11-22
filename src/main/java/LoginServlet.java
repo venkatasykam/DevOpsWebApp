@@ -45,6 +45,11 @@ public class LoginServlet extends HttpServlet {
 	public boolean userExists(String inputUname, String inputPwd){
 		
 		boolean bln = false;
+		
+		if(dcm == null){
+			DockerConnectMySQL dcm = new DockerConnectMySQL();
+			dcm.createTable();
+		}
 				
 		String userDetails = dcm.getUser(inputUname,inputPwd);
 		
