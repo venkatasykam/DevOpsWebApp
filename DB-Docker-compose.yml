@@ -18,7 +18,7 @@ services:
       dockerfile: DbWebDockerfile
     depends_on:
        - db
-    image: devopswebapp:${releaseVersion}
+    image: devopswebapp:1.0
     container_name: devopswebapp_db
     ports:
       - "8181:8080"
