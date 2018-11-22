@@ -49,6 +49,7 @@ public class SignupServlet extends HttpServlet {
 		boolean bln = false;
 		
 		DockerConnectMySQL dcm = new DockerConnectMySQL();
+		dcm.createTable();
 
 		String userDetails = dcm.getUser(inputUname,inputPwd);
 		
