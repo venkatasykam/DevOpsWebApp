@@ -1,0 +1,26 @@
+version: '3'
+services:
+  db:
+     image: mysql
+     volumes:
+       - devopswebapp_db_data:/var/lib/mysql
+     restart: always
+     environment:
+       MYSQL_ROOT_PASSWORD: root
+       MYSQL_DATABASE: usersdb
+       MYSQL_USER: admin
+       MYSQL_PASSWORD: admin123
+
+  devopswebapp:
+    build: 
+      context: .
+      dockerfile: DbWebDockerfile
+    depends_on:
+       - db
+    image: devopswebapp
+    container_name: devopswebapp_db
+    ports:
+      - "8181:8080"
+
+volumes:
+    devopswebapp_db_data:
