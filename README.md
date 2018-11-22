@@ -1,5 +1,11 @@
 # DevOpsWebApp
 
+* This is the Java maven web project **DevOpsWebApp**.
+* Web app is going to save the registered user details in the backend database **mySql**.
+* Building docker images & creating containers using docker-compose.
+
+## Build the images from source code using docker compose.
+
 ### Step-1: Run maven build
 
     mvn clean package -DskipTests=true -DreleaseVersion=1.0
