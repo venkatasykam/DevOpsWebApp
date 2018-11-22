@@ -6,13 +6,16 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;  
 import javax.servlet.http.HttpServletRequest;  
 import javax.servlet.http.HttpServletResponse;  
-  
+import java.util.*;
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
   
 public class LoginServlet extends HttpServlet {
 	
 	public DockerConnectMySQL dcm = null;
 	
-	public LoginServlet(){
+	public void init(ServletConfig config){
 		
 		DockerConnectMySQL dcm = new DockerConnectMySQL();
 		dcm.createTable();
