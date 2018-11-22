@@ -17,7 +17,17 @@
     
     select * from USERS;
     
+    Ctrl p + q
+    
+    docker login
+    
+    docker tag devopswebapp venkatasykam/devopswebapp:1.0-db
+    
+    docker push venkatasykam/devopswebapp:1.0-db
+    
     docker rm $(docker ps -a -q) -f
 
     docker rmi $(docker images -q)
+    
+Refer: After the above steps(after pushed the tag to dockerhub) if you want to run these app anywhere, refer [docker-compose-devops-web-db.yml](docker-compose-devops-web-db.yml)
 
