@@ -13,11 +13,10 @@ import javax.servlet.http.*;
 
 public class SignupServlet extends HttpServlet {
 
-	public DockerConnectMySQL dcm = null;
+	public DockerConnectMySQL dcm = new DockerConnectMySQL();
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		DockerConnectMySQL dcm = new DockerConnectMySQL();
 		dcm.createTable();
 
 		response.setContentType("text/html");
