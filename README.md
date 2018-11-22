@@ -6,6 +6,8 @@
     docker-compose -f DB-Docker-compose.yml up -d
 
     docker ps
+    
+    http://54.90.161.12:8181/ or http://54.90.161.12:8181/DevOpsWebApp-1.0/ (enter creds 'tomcat' & 's3cret' as uname and pwd if it asks)
    
     docker exec -it devops_db bash
 
