@@ -17,6 +17,9 @@ public class SignupServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		DockerConnectMySQL dcm = new DockerConnectMySQL();
+		dcm.createTable();
+
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 
@@ -48,9 +51,6 @@ public class SignupServlet extends HttpServlet {
 
 		boolean bln = false;
 		
-		DockerConnectMySQL dcm = new DockerConnectMySQL();
-		dcm.createTable();
-
 		String userDetails = dcm.getUser(inputUname,inputPwd);
 		
 		if(userDetails.equals("nouser")){
