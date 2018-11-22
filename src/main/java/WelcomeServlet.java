@@ -11,11 +11,11 @@ public class WelcomeServlet extends HttpServlet {
 	  
 		response.setContentType("text/html");  
 		PrintWriter out = response.getWriter();  
-			  
-		String username=request.getParameter("username");  
+
+		String username = request.getParameter("username").toUpperCase();  
 		
-		out.print("<body align=center><h1><font color=green>Login Success, Welcome "+username+"</font><body><br/><br/><br/><a href=index.jsp>Logout</a><br/>");  
-			  
+		out.print("<body align=center><h1><font color=green>Login Success, Welcome <font color=blue>"+username+"</font></font><body><br/><br/><br/><a href=index.jsp>Logout</a><br/>");  
+		
 		out.close();  
 	}  
   
