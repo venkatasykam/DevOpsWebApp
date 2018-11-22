@@ -1,6 +1,6 @@
 # DevOpsWebApp
 
-* This is the Java maven web project **DevOpsWebApp**.
+* This is very simple and basic Java maven web project **DevOpsWebApp**.
 * Web app is going to save the registered user details in the backend database **mySql**.
 * Building docker images & creating containers using docker-compose.
 
