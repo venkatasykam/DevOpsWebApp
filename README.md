@@ -54,9 +54,14 @@
     select * from USERS;
     
     Ctrl p + q
+    
+### Step-7: Remove the container & images from your docker host.
+
     docker rm $(docker ps -a -q) -f
 
-    docker rmi $(docker images -q)
+    docker rmi $(docker images -q) -f
+    
+   if you want to remove only one
     
     docker rm devopsweb-db -f
     
