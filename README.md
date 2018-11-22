@@ -23,7 +23,7 @@
 
         docker run -d --name db -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=usersdb -e MYSQL_USER=admin -e MYSQL_PASSWORD=admin123 mysql
   
-  * Connect to the DB container to verify the USERS table exists or not.
+  * (Optional) Connect to the DB container to verify the USERS table exists or not.
 
         docker exec -it db bash
 
