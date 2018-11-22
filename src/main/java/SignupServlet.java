@@ -12,11 +12,10 @@ public class SignupServlet extends HttpServlet {
 
 	public DockerConnectMySQL dcm = null;
 
-	public SignupServlet(){
-
+	public void init(ServletConfig config){
+		
 		DockerConnectMySQL dcm = new DockerConnectMySQL();
-		dcm.createTable();
-
+	
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
