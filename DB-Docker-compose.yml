@@ -24,6 +24,8 @@ services:
     networks:
       - overlay
     container_name: devopswebapp_db
+    deploy:
+      replicas: 3
     ports:
       - "8181:8080"
 
