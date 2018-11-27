@@ -2,10 +2,8 @@ version: '3'
 services:
   db:
      image: mysql
-     container_name: devops_db
      volumes:
        - devopswebapp_db_data:/var/lib/mysql
-     restart: always
      networks:
       - overlay
      environment:
@@ -20,7 +18,6 @@ services:
     image: venkatasykam/devopswebapp:1.0-db
     networks:
       - overlay
-    container_name: devopswebapp_db
     deploy:
       replicas: 3
     ports:
