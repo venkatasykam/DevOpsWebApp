@@ -39,6 +39,8 @@
 
     docker stack deploy -c docker-compose-devops-web-db.yml devopsweb-mysql
 
+![image](https://user-images.githubusercontent.com/24622526/49082594-25d86e00-f270-11e8-8196-8c6faa21f079.png)
+
 ### Step-5: Connect to DB container to check whthert he data stored in db container or not.
 
     docker exec -it devopsweb-mysql-db-wsfsfgsgfsf bash  # Container name may be different
