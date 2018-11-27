@@ -2,29 +2,41 @@
 
 * This is very simple and basic Java maven web project **DevOpsWebApp**.
 * Web app is going to save the registered user details in the backend database **mySql**.
-* Building docker images & creating containers using docker-compose.
+* Building docker images & creating containers using docker stack, docker-compose.
 
 ## Build the images from source code using docker compose.
 
-### Step-1: Run maven build
-
-    mvn clean package -DskipTests=true -DreleaseVersion=1.0
-
-### Step-2: Run docker compose file to build the docker image for this web app & run the containers.
+### Step-1: Setup the cluster.
     
-    docker-compose -f DB-Docker-compose.yml up -d
-
-    docker ps
+   Follow the steps from 1 to 4 https://github.com/DevOpsPlatform/Phase-2/blob/master/Docker/DockerStacks/docker-stack.md.
     
-### Step-3: Launch the URL in amy browser.
-    
-    http://54.90.161.12:8181/ or http://54.90.161.12:8181/DevOpsWebApp-1.0/ (enter creds 'tomcat' & 's3cret' as uname and pwd if it prompts)
-    
-    signup to insert a new user record in the backend database.
+### Step-2: Run maven build
 
-### Step-4: Connect to DB contaner to see the data in table.
+  * Install java, maven, git on ubuntu docker-master machine -- refer [java-maven-git-setup-ubuntu.sh](https://github.com/DevOpsPlatform/Phase-1/blob/master/java-maven-git-setup-ubuntu.sh).
+  
+  * Clone this current repo into docker manager and run the below goals.
+  
+  * cd DevOpsWebApp
+  
+          mvn clean package -DskipTests=true -DreleaseVersion=1.0
 
-    docker exec -it devops_db bash
+### Step-3: Build the docker image.
+
+    Syntax: docker build -t image-name -f ./customDockerfile .
+    
+    Ex: docker build -t devopswebapp:1.0 -f ./DbWebDockerfile .
+    
+    docker images
+    
+    Pusht the image to docker hub
+    
+### Step-4: Run the docker compose file using docker stack command on manager host.
+
+    docker stack deploy -c docker-compose-devops-web-db.yml devopsweb-mysql
+
+### Step-5: Connect to DB container to check whthert he data stored in db container or not.
+
+    docker exec -it devopsweb-mysql-db-wsfsfgsgfsf bash  # Container name may be different
 
     mysql -h 127.0.0.1 -P 3306 -uadmin -padmin123 usersdb;
 
@@ -34,26 +46,6 @@
     
     Ctrl p + q
 
-### Step-5: Push the docker image to docker hub.
+### Step-5: Remove the stack
 
-    docker login (enter the credetials)
-    
-    docker tag devopswebapp venkatasykam/devopswebapp:1.0-db 
-    
-        Note: Here you need to specify your docker hub username and repo. Make sure the repo devopswebapp should already exists in dockerhub.
-    
-    docker push venkatasykam/devopswebapp:1.0-db
-    
-### Step-6: Remove the container & images from your docker host.
-
-    docker-compose -f DB-Docker-compose.yml down (OR) docker rm $(docker ps -a -q) -f
-
-    docker rmi $(docker images -q) -f
-    
-## Refer: After the above steps(after pushed the tag to dockerhub) if you want to run these apps anywhere into docker,
-
-   refer [docker-compose-devops-web-db.yml](docker-compose-devops-web-db.yml)
-
-        docker-compose -f docker-compose-devops-web-db.yml up -d
-        
-   Repeat the above steps 3, 4, 6.
+    docker stack rm devopsweb-mysql
