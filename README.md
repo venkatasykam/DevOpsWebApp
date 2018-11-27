@@ -10,6 +10,9 @@
     
    Follow the steps from 1 to 4 https://github.com/DevOpsPlatform/Phase-2/blob/master/Docker/DockerStacks/docker-stack.md.
     
+    
+   You can directly run Step-4 as one of my image already exists. If you want to build your own image and push to your account, then follow the below steps-2,3.
+   
 ### Step-2: Run maven build
 
   * Install java, maven, git on ubuntu docker-master machine -- refer [java-maven-git-setup-ubuntu.sh](https://github.com/DevOpsPlatform/Phase-1/blob/master/java-maven-git-setup-ubuntu.sh).
@@ -29,6 +32,8 @@
     docker images
     
     Pusht the image to docker hub
+    
+    * update the image details in docker-compose-devops-web-db.yml file.
     
 ### Step-4: Run the docker compose file using docker stack command on manager host.
 
