@@ -11,7 +11,7 @@
    Follow the steps from 1 to 4 https://github.com/DevOpsPlatform/Phase-2/blob/master/Docker/DockerStacks/docker-stack.md.
     
     
-   You can directly run Step-4 as one of my image already exists. If you want to build your own image and push to your account, then follow the below steps-2,3.
+   You can directly run Step-4(below) as one of my image already exists. If you want to build your own image and push to your account, then follow the below steps-2,3.
    
 ### Step-2: Run maven build
 
