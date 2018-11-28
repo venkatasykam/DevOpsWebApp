@@ -8,7 +8,7 @@
 
 ### Step-1: Setup the cluster.
     
-   Follow the steps from 1 to 4 https://github.com/DevOpsPlatform/Phase-2/blob/master/Docker/DockerStacks/docker-stack.md.
+   Follow the steps from 1 to 4 [docker-stack](https://github.com/DevOpsPlatform/Phase-2/blob/master/Docker/DockerStacks/docker-stack.md)
     
     
    You can directly run Step-4(below) as one of my image already exists. If you want to build your own image and push to your account, then follow the below steps-2,3.
