@@ -37,8 +37,13 @@ Push the image to docker hub: refer: https://github.com/DevOpsPlatform/Phase-2/b
     
 ### Step-4: Run the docker compose file using docker stack command on manager host.
 
-    env DB_HOST=devops_db docker stack deploy -c docker-compose-devops-web-db.yml devops
+    syntax: env DB_HOST=[DB-Service-Name] docker stack deploy -c docker-compose-devops-web-db.yml [stach-name]
+        
+    Here you need to pass the environment varilable in the combination DB_HOST=[stack-name]_[db-service-name-which-you-specified-in-yml]
 
+    Ex: env DB_HOST=devops_db docker stack deploy -c docker-compose-devops-web-db.yml devops
+    
+    
 Launch the URL: http://[manager-public-ip]:8181/DevOpsWebApp-2.0-stack/
 
 ![image](https://user-images.githubusercontent.com/24622526/49324456-1dc04d00-f554-11e8-8554-5fad250fa0fe.png)
@@ -69,4 +74,4 @@ After signup & login.
 
 ### Step-5: Remove the stack
 
-    docker stack rm devopsweb-mysql
+    docker stack rm devops
