@@ -3,9 +3,9 @@ import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 
 public class DockerConnectMySQL {
-
+	public static String dbHost = System.getenv("DB_HOST");
 	static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-	static final String DB_URL = "jdbc:mysql://db:3306/usersdb";
+	static final String DB_URL = "jdbc:mysql://"+dbHost+":3306/usersdb";
 
 	static final String USER = "admin";
 	static final String PASS = "admin123";
