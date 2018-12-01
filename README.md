@@ -37,7 +37,7 @@
     
 ### Step-4: Run the docker compose file using docker stack command on manager host.
 
-    env DB_HOST=devops_db docker stack deploy -c stack.yml devops
+    env DB_HOST=devops_db docker stack deploy -c docker-compose-devops-web-db.yml devops
 
 
 ![image](https://user-images.githubusercontent.com/24622526/49324384-595a1780-f552-11e8-96f0-3901610f2e18.png)
