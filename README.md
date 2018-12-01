@@ -21,29 +21,34 @@
   
   * cd DevOpsWebApp
   
-          mvn clean package -DskipTests=true -DreleaseVersion=1.0
+        mvn clean install -DreleaseVersion=2.0-stack -Dmaven.test.skip=true
 
 ### Step-3: Build the docker image.
 
     Syntax: docker build -t image-name -f ./customDockerfile .
     
-    Ex: docker build -t devopswebapp:1.0 -f ./DbWebDockerfile .
+    Ex: docker build -t devopswebapp:2.0-stack -f ./DbWebDockerfile .
     
     docker images
     
-    Pusht the image to docker hub
+    Push the image to docker hub
     
     * update the image details in docker-compose-devops-web-db.yml file.
     
 ### Step-4: Run the docker compose file using docker stack command on manager host.
 
-    docker stack deploy -c docker-compose-devops-web-db.yml devopsweb-mysql
+    env DB_HOST=devops_db docker stack deploy -c stack.yml devops
 
-![image](https://user-images.githubusercontent.com/24622526/49082594-25d86e00-f270-11e8-8196-8c6faa21f079.png)
+
+![image](https://user-images.githubusercontent.com/24622526/49324384-595a1780-f552-11e8-96f0-3901610f2e18.png)
+
+
+![image](https://user-images.githubusercontent.com/24622526/49324378-48a9a180-f552-11e8-9c65-bd7725cad4c7.png)
+
 
 ### Step-5: Connect to DB container to check whthert he data stored in db container or not.
 
-    docker exec -it devopsweb-mysql-db-wsfsfgsgfsf bash  # Container name may be different
+    docker exec -it devops_db.1.4y65r5fzv19l6f5sacjnegr27 bash  # Container ID/name may be different in your case
 
     mysql -h 127.0.0.1 -P 3306 -uadmin -padmin123 usersdb;
 
@@ -52,6 +57,9 @@
     select * from USERS;
     
     Ctrl p + q
+
+![image](https://user-images.githubusercontent.com/24622526/49324372-2c0d6980-f552-11e8-88a5-e99eeb882abb.png)
+
 
 ### Step-5: Remove the stack
 
