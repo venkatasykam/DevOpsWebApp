@@ -1,3 +1,4 @@
 FROM tomcat:8
+ENV DB_HOST=$DB_HOST
 ADD target/DevOpsWebApp-*.war /usr/local/tomcat/webapps/
 ADD tomcat8/tomcat-users.xml /usr/local/tomcat/conf/
