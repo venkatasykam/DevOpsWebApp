@@ -39,9 +39,15 @@ Push the image to docker hub: refer: https://github.com/DevOpsPlatform/Phase-2/b
 
     env DB_HOST=devops_db docker stack deploy -c docker-compose-devops-web-db.yml devops
 
+Launch the URL: http://[manager-public-ip]:8181/DevOpsWebApp-2.0-stack/
+
+![image](https://user-images.githubusercontent.com/24622526/49324456-1dc04d00-f554-11e8-8554-5fad250fa0fe.png)
+
+Click on Sigup, and enter the details.
 
 ![image](https://user-images.githubusercontent.com/24622526/49324384-595a1780-f552-11e8-96f0-3901610f2e18.png)
 
+After signup & login.
 
 ![image](https://user-images.githubusercontent.com/24622526/49324378-48a9a180-f552-11e8-9c65-bd7725cad4c7.png)
 
