@@ -1,4 +1,4 @@
-# DevOpsWebApp: Not yet finalized - documentation is in progress
+# DevOpsWebApp: 
 
 * This is very simple and basic Java maven web project **DevOpsWebApp**.
 * Web app is going to save the registered user details in the backend database **mySql**.
@@ -31,9 +31,9 @@
     
     docker images
     
-    Push the image to docker hub
+Push the image to docker hub: refer: https://github.com/DevOpsPlatform/Phase-2/blob/master/Docker/DockerEngine/3.DokcerHub.md
     
-    * update the image details in docker-compose-devops-web-db.yml file.
+    * update the image details in docker-compose-devops-web-db.yml file if you specify the different name.
     
 ### Step-4: Run the docker compose file using docker stack command on manager host.
 
