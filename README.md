@@ -121,6 +121,36 @@
    ![image](https://user-images.githubusercontent.com/24622526/49380434-b19e3e80-f737-11e8-86c9-6f1d8216f392.png)
 
 
+Note: If you want to check the logs of the tomcat server, go to application --> configuration section --> Security --> Modify --> Choose the existing pem file & defaulr role --> Apply --> Confirm. (This will take few mins to update).
+
+   ![image](https://user-images.githubusercontent.com/24622526/49380680-2ec9b380-f738-11e8-833c-f4158c16e8dd.png)
+   
+   Now, you can connect to your EC2 instance as you are connecting to other EC2 instances.
+   
+   Every time when you update the configuration, EC2 instance will be terminated and EB will create a new one.
+   
+   ![image](https://user-images.githubusercontent.com/24622526/49380866-b1527300-f738-11e8-8e1e-9d3afed718e4.png)
+
+
+   Once the instance is avilable, you can connect to your instance as usual.
+   
+   ![image](https://user-images.githubusercontent.com/24622526/49381052-173efa80-f739-11e8-91bf-6e977d5fe491.png)
+
+
+   check the server logs at /var/log/tomcat8/catalina.out
+   
+   cat /var/log/tomcat8/catalina.out
+   
+   
+   ![image](https://user-images.githubusercontent.com/24622526/49381224-713fc000-f739-11e8-9793-bd4f0a63f6ed.png)
+
+
+   
+   
+   
+   
+
+
 
 
 
