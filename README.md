@@ -121,7 +121,9 @@
    ![image](https://user-images.githubusercontent.com/24622526/49380434-b19e3e80-f737-11e8-86c9-6f1d8216f392.png)
 
 
-Note: If you want to check the logs of the tomcat server, go to application --> configuration section --> Security --> Modify --> Choose the existing pem file & defaulr role --> Apply --> Confirm. (This will take few mins to update).
+### Step-7: If you want to check the logs of the tomcat server,
+
+   go to application --> configuration section --> Security --> Modify --> Choose the existing pem file & defaulr role --> Apply --> Confirm. (This will take few mins to update).
 
    ![image](https://user-images.githubusercontent.com/24622526/49380680-2ec9b380-f738-11e8-833c-f4158c16e8dd.png)
    
@@ -143,6 +145,13 @@ Note: If you want to check the logs of the tomcat server, go to application --> 
    
    
    ![image](https://user-images.githubusercontent.com/24622526/49381224-713fc000-f739-11e8-9793-bd4f0a63f6ed.png)
+  
+### Step-8: Delete the application.
+
+   ![image](https://user-images.githubusercontent.com/24622526/49381379-bf54c380-f739-11e8-98ea-e0f88e53e9d5.png)
+
+   
+   
 
 
    
