@@ -14,7 +14,7 @@
 
 ### Step-2: Maven build - compiling the java code & packaging as war.
 
-    mvn clean package -DskipTests=true -DreleaseVersion=2.0
+    mvn clean package -DskipTests=true -DreleaseVersion=5.0
 
 ### Step-3: Create a an application in Elastic Beanstalk.
 
