@@ -6,11 +6,11 @@ public class DockerConnectMySQL {
 
 	static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
 	
-	String dbName = System.getProperty("RDS_DB_NAME");
-	String userName = System.getProperty("RDS_USERNAME");
-        String password = System.getProperty("RDS_PASSWORD");
-        String hostname = System.getProperty("RDS_HOSTNAME");
-        String port = System.getProperty("RDS_PORT");
+	public static String dbName = System.getProperty("RDS_DB_NAME");
+	public static String userName = System.getProperty("RDS_USERNAME");
+        public static String password = System.getProperty("RDS_PASSWORD");
+        public static String hostname = System.getProperty("RDS_HOSTNAME");
+        public static String port = System.getProperty("RDS_PORT");
 	
 	static final String DB_URL = "jdbc:mysql://" + hostname + ":" + port + "/" + dbName;
 
