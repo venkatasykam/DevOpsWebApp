@@ -7,8 +7,8 @@ public class DockerConnectMySQL {
 	static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
 	static final String DB_URL = "jdbc:mysql://aad83tnaq3la3d.cj2gkxwf4bkj.us-east-1.rds.amazonaws.com:3306/usersdb";
 
-	static final String USER = "admin";
-	static final String PASS = "admin123";
+	static final String USER = "Webdb222";
+	static final String PASS = "Webdb222";
 	
 	String sql = null;
 
