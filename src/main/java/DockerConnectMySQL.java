@@ -5,10 +5,17 @@ import java.sql.DriverManager;
 public class DockerConnectMySQL {
 
 	static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-	static final String DB_URL = "jdbc:mysql://aad83tnaq3la3d.cj2gkxwf4bkj.us-east-1.rds.amazonaws.com:3306/usersdb";
+	
+	String dbName = System.getProperty("RDS_DB_NAME");
+	String userName = System.getProperty("RDS_USERNAME");
+        String password = System.getProperty("RDS_PASSWORD");
+        String hostname = System.getProperty("RDS_HOSTNAME");
+        String port = System.getProperty("RDS_PORT");
+	
+	static final String DB_URL = "jdbc:mysql://" + hostname + ":" + port + "/" + dbName;
 
-	static final String USER = "Webdb222";
-	static final String PASS = "Webdb222";
+	static final String USER = userName;
+	static final String PASS = password;
 	
 	String sql = null;
 
