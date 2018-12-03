@@ -1,20 +1,51 @@
-# DevOpsWebApp
+# DevOpsWebApp - AWS Elastic Beanstalk example
 
 * This is very simple and basic Java maven web project **DevOpsWebApp**.
 * Web app is going to save the registered user details in the backend database **mySql**.
-* Building docker images using docker file.
-* Creating/running containers using docker run command.
+* Maven build, it will generate a java web archive (.war).
+* Create a beanstack for tomcat java web app.
 * Accessing the web app in any browser.
-* Signup.
+* Signup, so that user details should be saved in RDS (mySQL) database.
 
 
-### Step-1: Maven build - compiling the java code & packaging as war.
+### Step-1: Clone to your local machine.
 
-    mvn clean package -DskipTests=true -DreleaseVersion=1.0
+    git clone -b jdbc-eb https://github.com/venkatasykam/DevOpsWebApp.git
 
-### Step-2: Docker build - building image from docker file, it copies the war file into tomcat.
+### Step-2: Maven build - compiling the java code & packaging as war.
 
-    docker build -t devopswebapp:1.0-db -f DbWebDockerfile .
+    mvn clean package -DskipTests=true -DreleaseVersion=2.0
+
+### Step-3: Create a an application in Elastic Beanstalk.
+
+   3.1. Go to https://console.aws.amazon.com/elasticbeanstalk/
+   
+   3.2. Click on "Create New Application" and provide the application name & description.
+   
+   ![image](https://user-images.githubusercontent.com/24622526/49377988-93354480-f731-11e8-8a59-53119b41cf8e.png)
+
+   3.3. Create a new environment.
+   
+   ![image](https://user-images.githubusercontent.com/24622526/49378339-574eaf00-f732-11e8-8e78-3c8127bfe200.png)
+
+   ![image](https://user-images.githubusercontent.com/24622526/49378371-6b92ac00-f732-11e8-9184-d1e9161e916c.png)
+
+   ![image](https://user-images.githubusercontent.com/24622526/49378426-941aa600-f732-11e8-9a13-c222a4287678.png)
+
+   Choose the platform as Tomcat
+   
+   ![image](https://user-images.githubusercontent.com/24622526/49378470-adbbed80-f732-11e8-8315-5437b390c981.png)
+
+   Click on upload: Upload the war file and click upload.
+   
+   ![image](https://user-images.githubusercontent.com/24622526/49378529-d643e780-f732-11e8-8f8c-fb9a2395c071.png)
+   
+   Click on Create Environment. See the below image, the environment is creating.
+   
+   ![image](https://user-images.githubusercontent.com/24622526/49378633-1a36ec80-f733-11e8-868c-ea952ff16747.png)
+
+
+   
 
 ### Step-3: Create the db container first.
 
