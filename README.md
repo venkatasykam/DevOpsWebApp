@@ -149,6 +149,8 @@
 ### Step-8: Delete the application.
 
    ![image](https://user-images.githubusercontent.com/24622526/49381379-bf54c380-f739-11e8-98ea-e0f88e53e9d5.png)
+   
+### Step-9: Delete RDS instance.
 
    
    
