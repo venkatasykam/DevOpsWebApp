@@ -4,7 +4,7 @@
 	</head>
 	<body align=center>
 		<h2>Hello, DevOps World!!!</h2>
-		<h3>Find the <font color=pink>DevOps Tools - EB 4.0</font> list below.</h3>
+		<h3>Find the <font color=blue>DevOps Tools - EB 5.0</font> list below.</h3>
 		<a href=LoginPage.html >Login</a>
 		<br/><br/>
 		Click <a href="signup.html">Signup</a>
