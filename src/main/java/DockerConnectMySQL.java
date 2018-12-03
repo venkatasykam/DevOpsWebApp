@@ -12,7 +12,7 @@ public class DockerConnectMySQL {
         public static String hostname = System.getProperty("RDS_HOSTNAME");
         public static String port = System.getProperty("RDS_PORT");
 	
-	static final String DB_URL = "jdbc:mysql://" + hostname + ":" + port + "/" + dbName;
+	public static String DB_URL = "jdbc:mysql://" + hostname + ":" + port + "/" + dbName;
 
 	static final String USER = userName;
 	static final String PASS = password;
