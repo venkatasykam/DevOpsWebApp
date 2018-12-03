@@ -17,7 +17,7 @@ public class SignupServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		dcm.createTable();
+		//dcm.createTable();
 
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
