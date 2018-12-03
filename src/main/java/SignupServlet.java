@@ -12,6 +12,8 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 
 public class SignupServlet extends HttpServlet {
+	
+	DockerConnectMySQL dcm = null;
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -47,8 +49,9 @@ public class SignupServlet extends HttpServlet {
 	public boolean userExists(String inputUname, String inputPwd){
 
 		boolean bln = false;
+		
 		if(dcm == null){
-			DockerConnectMySQL dcm = new DockerConnectMySQL();
+			dcm = new DockerConnectMySQL();
 			dcm.createTable();
 		}
 		String userDetails = dcm.getUser(inputUname,inputPwd);
