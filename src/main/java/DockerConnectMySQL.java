@@ -43,7 +43,7 @@ public class DockerConnectMySQL {
 	
 	public boolean tableExists() {
 
-		String tableName = "users";
+		String tableName = "USERS";
 
 		boolean bln = false;
 		try{
