@@ -1,4 +1,4 @@
-# DevOpsWebApp
+# DevOpsWebApp : Docker compose example
 
 * This is very simple and basic Java maven web project **DevOpsWebApp**.
 * Web app is going to save the registered user details in the backend database **mySql**.
