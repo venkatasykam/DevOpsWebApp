@@ -67,6 +67,10 @@
 
         port: 3306
 
+ * Connect to your mySQL server and create a table. 
+ 
+   To install mysql client on ubuntu: `apt-get update -y && apt-get install mysql-client -y`
+
         mysql -h usersdb.endpointname -P 3306 -uUSERNAME -pPWD DB_NAME;
         
         CREATE TABLE USERS (uname VARCHAR(30) not NULL, firstname VARCHAR(255), lastname VARCHAR(255), password VARCHAR(8), PRIMARY KEY ( uname ))
