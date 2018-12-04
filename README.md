@@ -1,4 +1,4 @@
-# DevOpsWebApp
+# DevOpsWebApp : Only a webapp
 
 mvn clean package
 
