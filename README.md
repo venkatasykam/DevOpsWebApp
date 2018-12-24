@@ -59,7 +59,7 @@ Refer: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.Scenarios
 
 ### Step-8: Launch the URL in amy browser.
     
-    http://54.90.161.12:8181/ or http://54.90.161.12:8181/DevOpsWebApp-1.0/ (enter creds 'admin' & 'admin_password' as uname and pwd if it prompts)
+    http://54.90.161.12:8080/ or http://54.90.161.12:8080/DevOpsWebApp-1.0/ (enter creds 'admin' & 'admin_password' as uname and pwd if it prompts)
     
     signup to insert a new user record in the backend database.
     
