@@ -1,22 +1,24 @@
-# DevOpsWebApp: EC2 example (Java web -- DB )
+# DevOpsWebApp: VPc example-2
 
 Refer: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.Scenarios.html#USER_VPC.Scenario1
 
 * This is very simple and basic Java maven web project **DevOpsWebApp**.
 * Web app is going to save the registered user details in the backend database **mySql**.
-* Web application will be deployed into public EC2 instance.
-* DB(MySQL) will be installed into private EC2 instance.
+* Web application will be deployed into **public** EC2 instance.
+* DB(MySQL) will be installed into **private** EC2 instance.
 * Accessing the web app in any browser.
 * Signup.
 * Signup details will be saved into the backend database table.
 
 ### Step-1: Create VPC with 1 public & 1 private subnet.
 
+### Step-2: Create two Ubuntu EC2 instance.
 
+  * Create two Ubuntu EC2 instances, one for mySQL into private subnet and another one fro web app (tomcat server) into public subnet.
+  
+  * Connect to the private instance thropugh public instance.
 
-### Step-2: Create an Ubuntu EC2 instance for mySQL.
-
-   * Server installation, refer https://support.rackspace.com/how-to/installing-mysql-server-on-ubuntu/
+   * MySQL Server installation, refer https://support.rackspace.com/how-to/installing-mysql-server-on-ubuntu/
 
     apt-get update -y && apt-get install mysql-server -y
     
@@ -34,7 +36,7 @@ Refer: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.Scenarios
    
     Syntax: CREATE USER 'username'@'%' IDENTIFIED BY 'password';
     
-    Ex: CREATE USER 'ebstack2018'@'%' IDENTIFIED BY 'ebstack2018';    
+    Ex: CREATE USER 'ebstack2018'@'%' IDENTIFIED BY 'ebstack2018';
     
    * Grant all access to the user
     
@@ -81,9 +83,11 @@ Refer: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.Scenarios
     
    * Connect to mysql server
    
-    Syntax: mysql -h <IP-Address> -P 3306 -u<username> -p<password> <db-name>;
+    Syntax: mysql -h <private-IP-Address> -P 3306 -u<username> -p<password> <db-name>;
     
-    Ex: mysql -h 52.66.250.163 -P 3306 -uebstack2018 -pebstack2018 ebdb;
+    Ex: mysql -h 10.1.2.184 -P 3306 -uebstack2018 -pebstack2018 ebdb;
+    
+   Make sure the securoty group open the port number 3306 to public instance.
     
 ### Step-3: Ubuntu instance for Java Web app
 
