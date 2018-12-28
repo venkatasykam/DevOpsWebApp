@@ -75,7 +75,18 @@ Refer: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.Scenarios
    
     apt-get update && apt-get install mysql-client -y
     
-   * 
+   * Connect to mysql server
+   
+    Syntax: mysql -h <IP-Address> -P 3306 -u<username> -p<password> <db-name>;
+    
+    Ex: mysql -h 52.66.250.163 -P 3306 -uebstack2018 -pebstack2018 ebdb;
+    
+### Step-3: Ubuntu instance for Java Web app
+
+   * * **refer git, maven installtion doc**: https://github.com/DevOpsPlatform/Phase-1/blob/master/java-maven-git-setup-ubuntu.sh
+   
+   * **tomcat install**: https://github.com/DevOpsPlatform/Phase-1/blob/master/tomcat9-setup-on-ubuntu.md
+   
    
     
     
