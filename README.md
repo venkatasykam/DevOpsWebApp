@@ -1,4 +1,4 @@
-# DevOpsWebApp: EC2 example (Java web -- DB )
+# DevOpsWebApp: EC2 example (Java web -- DB ) - with default VPC
 
 Refer: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.Scenarios.html#USER_VPC.Scenario1
 
