@@ -1,73 +1,100 @@
-# DevOpsWebApp: VPC example
+# DevOpsWebApp: EC2 example (Java web -- DB )
 
 Refer: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.Scenarios.html#USER_VPC.Scenario1
 
 * This is very simple and basic Java maven web project **DevOpsWebApp**.
 * Web app is going to save the registered user details in the backend database **mySql**.
-* Web application will be deployed into public EC2 instance.
-* RDS - MySQL db private instance will be created.
+* Web application will be deployed into EC2 instance.
+* DB(MySQL) will be installed into another EC2 instance.
 * Accessing the web app in any browser.
 * Signup.
+* Signup details will be saved into the backend database table.
 
-### Step-1: Create VPC with two subnets (One public and one private subnets).
+### Step-1: Create an Ubuntu EC2 instance for mySQL.
 
-### Step-2: Create subnet group in RDS.
+   * Server installation, refer https://support.rackspace.com/how-to/installing-mysql-server-on-ubuntu/
 
-   * Goto https://console.aws.amazon.com/rds/
-   
-   * Subnets --> Create DB Subnet --> Add the private subnet as a DB subnet --> Create.
-   
-### Step-3: Create MySQL db with efault values and choose the custom VPC (that you created in step-1).
-
-### Step-4: After the DB instance created, 
-
-   * Update the java file [DockerConnectMySQL.java](src/main/java/DockerConnectMySQL.java) line-8 with DB endpoint, dbname.
-   * Line 10, 11 will be updated with db username & passowrd.
-   * Note down the endpoint, dbname, db username & passowrd.
-   
-### Step-5: Create a public instance, and install tomcat, git, maven.
-
-   * **refer git, maven installtion doc**: https://github.com/DevOpsPlatform/Phase-1/blob/master/java-maven-git-setup-ubuntu.sh
-   
-   * **tomcat install**: https://github.com/DevOpsPlatform/Phase-1/blob/master/tomcat9-setup-on-ubuntu.md.
-   
-   * git clone -b jdbc-vpc https://github.com/venkatasykam/DevOpsWebApp.git jdbc-vpc
-   
-   * cd jdbc-vpc
-   
-   * **Build**: mvn clean package -DskipTests=true -DreleaseVersion=1.0
-
-### Step-6: Deploy the package to tomcat
-
-   * cp jdbc-vpc/target/DevOpsWebApp-1.0.war /opt/tomcat/latest/webapps/DevOpsWebApp-1.0.war
-
-### Step-7: Connect to the DB instance to verify the USERS table exists or not.
-
-   * Install my sql client on ubuntu: `apt-get update -y && apt-get install mysql-client -y`
-
-   * Syntax: `mysql -h [Endpoint] -P 3306 -u[username] -p[password] [dbname];` (as you noted in **Step-4**)
-   
-   * Example: mysql -h ebdb.cj2rewrwrf4bkj.us-east-1.rds.amazonaws.com -P 3306 -uebstack2018 -pebstack2018 ebdb;
-
-            show tables;
-
-            ctrl p + q
-        
-   * If `USERS` table, doest not exists, create it.
-        
-            CREATE TABLE USERS (uname VARCHAR(30) not NULL, firstname VARCHAR(255), lastname VARCHAR(255), password VARCHAR(8), PRIMARY KEY ( uname ));
-
-### Step-8: Launch the URL in amy browser.
+    apt-get update -y && apt-get install mysql-server -y
     
-    http://54.90.161.12:8080/ or http://54.90.161.12:8080/DevOpsWebApp-1.0/ (enter creds 'admin' & 'admin_password' as uname and pwd if it prompts)
+   * Connect to the server
+   
+    /usr/bin/mysql -u root -p  
     
-    signup to insert a new user record in the backend database.
+    Or
     
-### Step-6: Connect to DB contaner to see the data in table.
+    mysql -u root -p
+    
+    Press Enter without entering the password.
+    
+   * Create user
+   
+    Syntax: CREATE USER 'username'@'%' IDENTIFIED BY 'password';
+    
+    Ex: CREATE USER 'ebstack2018'@'%' IDENTIFIED BY 'ebstack2018';    
+    
+   * Grant all access to the user
+    
+    Ex: GRANT ALL PRIVILEGES ON *.* TO 'ebstack2018'@'%' WITH GRANT OPTION;
+    
+   * Create database & use it
+   
+    Syntax: CREATE DATABASE dbname;
+    
+    ex: CREATE DATABASE ebdb;
+    
+    USE ebdb;
+    
+   * Create table
+   
+    CREATE TABLE USERS (uname VARCHAR(30) not NULL, firstname VARCHAR(255), lastname VARCHAR(255), password VARCHAR(8), PRIMARY KEY ( uname ));
 
-    mysql -h ebdb.cj2rewrwrf4bkj.us-east-1.rds.amazonaws.com -P 3306 -uebstack2018 -pebstack2018 ebdb;
-    show tables;
+   * exit from mysql command mode
+   
+    \q
     
-    select * from USERS;
+   * Update the bind address 
+   
+    vi /etc/mysql/mysql.conf.d/mysqld.cnf
     
-    Ctrl p + q
+    change from
+    
+      bind-address            = 127.0.0.1
+    
+    to
+    
+      bind-address            = 0.0.0.0
+      
+   * restart the mysql server
+   
+    systemctl restart mysql
+     
+     
+### Step-2(Optional): Try to connect mysql server from other instance.
+
+   * Launch an Ubuntu EC2 instance and install mysql cleint to check the myusql server connecting from other instance or not.
+   
+    apt-get update && apt-get install mysql-client -y
+    
+   * 
+   
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
