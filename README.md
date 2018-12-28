@@ -83,9 +83,27 @@ Refer: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.Scenarios
     
 ### Step-3: Ubuntu instance for Java Web app
 
-   * * **refer git, maven installtion doc**: https://github.com/DevOpsPlatform/Phase-1/blob/master/java-maven-git-setup-ubuntu.sh
-   
    * **tomcat install**: https://github.com/DevOpsPlatform/Phase-1/blob/master/tomcat9-setup-on-ubuntu.md
+   
+   * **refer git, maven installtion doc**: https://github.com/DevOpsPlatform/Phase-1/blob/master/java-maven-git-setup-ubuntu.sh
+   
+   * Update the java file [DockerConnectMySQL.java](src/main/java/DockerConnectMySQL.java) line-8 with DB hostname, dbname.
+   * Line 10, 11 will be updated with db username & passowrd.
+   
+### Step-4: Build and deploy
+
+   * git clone -b jdbc-ec2 https://github.com/venkatasykam/DevOpsWebApp.git jdbc-ec2
+   
+   * cd jdbc-ec2
+   
+   * **Build**: mvn clean package -DskipTests=true -DreleaseVersion=1.0
+   
+   * **Deploy**: cp target/DevOpsWebApp-1.0.war /opt/tomcat/latest/webapps/DevOpsWebApp-1.0.war
+   
+### Step-5: Launch an website URL in any browser from any machine.
+
+   * URL: http://13.233.8.52:8080/DevOpsWebApp-1.0/
+   
    
    
     
