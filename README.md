@@ -104,6 +104,22 @@ Refer: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.Scenarios
 
    * URL: http://13.233.8.52:8080/DevOpsWebApp-1.0/
    
+   * Signup URL: http://13.233.8.52:8080/DevOpsWebApp-1.0/signup.html
+   
+   * Provide some details and signup.
+   
+### Step-6: Connect to the database
+
+   * Run the command(
+   
+      * if you are connecting from the client: `mysql -h 52.66.250.163 -P 3306 -uebstack2018 -pebstack2018 ebdb;`
+      
+      * if you are connecting from the same server: `mysql -u ebstack2018 -pebstack2018 ebdb;`
+      
+   * Check the table: `select * from USERS;`
+   
+   
+   
    
    
     
