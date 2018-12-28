@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 public class DockerConnectMySQL {
 
 	static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-	static final String DB_URL = "jdbc:mysql://52.66.250.163:3306/ebdb";
+	static final String DB_URL = "jdbc:mysql://10.1.2.184:3306/ebdb";
 
 	static final String USER = "ebstack2018";
 	static final String PASS = "ebstack2018";
