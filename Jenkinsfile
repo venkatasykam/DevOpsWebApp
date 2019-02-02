@@ -1,7 +1,7 @@
 node{
 	stage('checkout'){
 		checkout scm
-		triggers { pollSCM('*/1 * * * *') }
+		//pollSCM('*/1 * * * *')
 	}
 	stage('build'){
 		sh '"/root/apache-maven-3.5.4/bin/mvn" -V clean package'
