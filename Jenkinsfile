@@ -1,6 +1,6 @@
 node{
 	stage('checkout'){
-		sh '"/root/apache-maven-3.5.4/bin/mvn" -V clean package'
+		checkout scm
 	}
 	stage('build'){
 		sh '"/root/apache-maven-3.5.4/bin/mvn" -V clean package'
