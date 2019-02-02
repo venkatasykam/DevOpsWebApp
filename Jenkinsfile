@@ -21,7 +21,7 @@ node{
 		rm -rf /root/tomcat7/webapps/WebApp-*
 
 		echo Step-2: Staging the new package to tomcat server.
-		cp ${env.WORKSPACE}/target/*.war /root/tomcat7/webapps
+		cp ${WORKSPACE}/target/*.war /root/tomcat7/webapps
 		'''
 	}
 }
