@@ -9,7 +9,7 @@ node{
 		sh '"/root/apache-maven-3.5.4/bin/mvn" -V clean test'
 	}
 	stage('deploy-to-nexus'){
-    print 'deploy the package to nexus'
+    		print 'deploy the package to nexus'
 		//sh '"/root/apache-maven-3.5.4/bin/mvn" -V clean deploy'
 	}
 	stage('deploy-to-tomcat'){
