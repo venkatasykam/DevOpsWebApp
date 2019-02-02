@@ -7,6 +7,7 @@
 	<name>${project.artifactId}-${project.version}</name>
 	<!-- dummy change -->
 	<!-- dummy change 2 -->
+	<!-- dummy change 3 -->
 	<properties>
 		<jnuit.version>4.12</jnuit.version>
 		<project.scm.id>github</project.scm.id>
