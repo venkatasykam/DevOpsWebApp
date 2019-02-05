@@ -6,6 +6,7 @@
 	<version>1.0.0-SNAPSHOT</version>
 	<name>${project.artifactId}-${project.version}</name>
 	<properties>
+		<nexusIp>13.232.241.211</nexusIp>
 		<jnuit.version>4.12</jnuit.version>
 		<project.scm.id>github</project.scm.id>
 		<!-- <github.global.server>github</github.global.server> -->
@@ -100,33 +101,45 @@
 		</plugins>
 	</build>
 	
-	<!-- 
 	<repositories>
 		<repository>
-			<id>deployment</id>
+			<id>libs</id>
 			<name>libs-release</name>
-			<url>http://18.219.8.35:8081/nexus/content/artifactory/libs-release</url>
+			<url>http://${nexusIp}:8081/nexus/content/artifactory/libs-release</url>
 		</repository>
 		<repository>
 			<id>public</id>
 			<name>public</name>
-			<url>http://18.219.8.35:8081/nexus/content/groups/public/</url>
+			<url>http://${nexusIp}:8081/nexus/content/groups/public</url>
 		</repository>
 	</repositories>
-	-->
+	
+	<pluginRepositories>
+        <pluginRepository>
+        	<id>public</id>
+			<name>public</name>
+			<url>http://${nexusIp}:8081/nexus/content/groups/public</url>
+        </pluginRepository>
+		<pluginRepository>
+        	<id>libs</id>
+			<name>libs-release</name>
+			<url>http://${nexusIp}:8081/nexus/content/artifactory/libs-release</url>
+        </pluginRepository>
+    </pluginRepositories>
 	
 	<distributionManagement>
 		<repository>
 			<id>deployment</id>
 			<name>Nexus Release Repository</name>
-			<url>http://18.219.8.35:8081/nexus/content/repositories/releases/</url>
+			<url>http://${nexusIp}:8081/nexus/content/repositories/releases</url>
 		</repository>
 		<snapshotRepository>
 			<id>deployment</id>
 			<name>Nexus Snapshots Repository</name>
-			<url>http://18.219.8.35:8081/nexus/content/repositories/snapshots/</url>
+			<url>http://${nexusIp}:8081/nexus/content/repositories/snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
+
 	<profiles>
 		<profile>
 			<id>sonar</id>
