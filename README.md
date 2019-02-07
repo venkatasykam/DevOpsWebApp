@@ -41,15 +41,11 @@ or you can download it from my drive https://drive.google.com/file/d/1orAg2SymZz
 
 14. configure jboss deploy plugin in maven pom.xml and run the command mvn clean install
 
-15. go to http://localhost:9990 --> Deployments --> there you should able to see your app.
+15. After the build, and deploy, go to management console --> Deployments --> there you will see the deployed artifact details.
 
-16. Run the app : http://localhost:8080/DevOpsWebAppEAR-web
+16. Run the application using the web context(This you can see it in the jboss server log console): 
 
-19. After the build, and deploy, go to management console --> Deployments --> there you will see the deployed artifact details.
-
-20. Run the application using the web context(This you can see it in the jboss server log console): 
-
-	URL (as per the above example): http://localhost:8080/simple-ear-web
+	URL (as per the above example): http://localhost:8080/DevOpsWebAppEAR-web
 
 
 
