@@ -33,63 +33,15 @@ https://www.redhat.com/en/technologies/jboss-middleware/application-platform
 
 12. launch the URL again in the browser: http://localhost:9990, this time it will ask you to entrer login creds.
 
-13. git clone or download a web app from https://github.com/venkatasykam/DevOpsWebApp
+13. git clone or download a ear app from https://github.com/venkatasykam/DevOpsWebApp
 
-	ex: git clone -b web https://github.com/venkatasykam/DevOpsWebApp
+	ex: git clone -b ear-jboss https://github.com/venkatasykam/DevOpsWebApp
 
 14. configure jboss deploy plugin in maven pom.xml and run the command mvn clean install
 
 15. go to http://localhost:9990 --> Deployments --> there you should able to see your app.
 
-16. Run the app : http://localhost:8080/DevOpsWebApp
-
-17. Run this command to generate EAR app: 
-mvn archetype:generate -DgroupId=com.packt.cookbook -DartifactId=DevOpsWebApp-ear -DarchetypeArtifactId=wildfly-javaee7-webapp-ear-archetype -DarchetypeGroupId=org.wildfly.archetype -DinteractiveMode=false
-
-18. Once the project generated, Navigate to the project folder and configure the pom file with below plugin.
-
-			<plugin>
-              <groupId>org.wildfly.plugins</groupId>
-              <artifactId>wildfly-maven-plugin</artifactId>
-              <version>1.1.0.Final</version>
-			    <configuration>
-						<force>true</force>
-						<hostname>localhost</hostname>
-						<username>ramkrishna</username>
-						<password>DevOps#123</password>
-						<port>9990</port>
-						<jboss-home>local-jboss-home</jboss-home>
-						<name>${project.build.finalName}.${project.packaging}</name>
-						<filename>${project.build.finalName}.${project.packaging}</filename>
-						<skip>false</skip>
-						<targetDir>${project.build.directory}/</targetDir>
-					</configuration>
-					<executions>
-                    <!-- Undeploy the application on clean -->
-                    <execution>
-                        <id>undeploy</id>
-                        <phase>clean</phase>
-                        <goals>
-                            <goal>undeploy</goal>
-                        </goals>
-                        <configuration>
-                            <ignoreMissingDeployment>true</ignoreMissingDeployment>
-                        </configuration>
-                    </execution>
-
-                    <!-- Deploy the application on install -->
-                    <execution>
-                        <id>deploy</id>
-                        <phase>install</phase>
-                        <goals>
-                            <goal>deploy</goal>
-                        </goals>
-                    </execution>
-                </executions>
-          </plugin>
-		  
-		  Command-1: mvn clean --> it will undeploy the package
-		  Command-2: mvn clean install --> it will build and deploy the package to jboss repo
+16. Run the app : http://localhost:8080/DevOpsWebAppEAR-web
 
 19. After the build, and deploy, go to management console --> Deployments --> there you will see the deployed artifact details.
 
