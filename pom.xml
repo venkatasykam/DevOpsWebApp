@@ -59,7 +59,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>${project.artifactId}-${project.version}</finalName>
+		<finalName>${project.artifactId}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -98,9 +98,46 @@
 					<password>s3cret</password>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.wildfly.plugins</groupId>
+				<artifactId>wildfly-maven-plugin</artifactId>
+				<version>1.1.0.Final</version>
+				<configuration>
+					<force>true</force>
+					<hostname>localhost</hostname>
+					<username>ramkrishna</username>
+					<password>DevOps#123</password>
+					<port>9990</port>
+					<name>${project.artifactId}.war</name>
+					<fileNames>
+						<fileName>target/${project.artifactId}.war</fileName>
+					</fileNames>
+				</configuration>
+				<executions>
+				<!-- Undeploy the application on clean -->
+				<execution>
+					<id>undeploy</id>
+					<phase>clean</phase>
+					<goals>
+						<goal>undeploy</goal>
+					</goals>
+					<configuration>
+						<ignoreMissingDeployment>true</ignoreMissingDeployment>
+					</configuration>
+				</execution>
+				<!-- Deploy the application on package -->
+				<execution>
+					<id>deploy</id>
+					<phase>package</phase>
+					<goals>
+						<goal>deploy</goal>
+					</goals>
+				</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
-	
+	<!--
 	<repositories>
 		<repository>
 			<id>libs</id>
@@ -126,7 +163,7 @@
 			<url>http://${nexusIp}:8081/nexus/content/artifactory/libs-release</url>
         </pluginRepository>
     </pluginRepositories>
-	
+	-->
 	<distributionManagement>
 		<repository>
 			<id>deployment</id>
