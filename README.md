@@ -23,11 +23,11 @@ https://www.redhat.com/en/technologies/jboss-middleware/application-platform
 
 10. launch the URL in any browser: http://localhost:9990
 
-11. setup user --> open command prompt at bin directory
+11. add user --> open command prompt at bin directory
 
 	run the bat file add-user.bat
 	
-	ex: ramkrishna DevOps#123
+	ex: venkat DevOps@123
 
 	roles: admin
 
@@ -37,7 +37,7 @@ https://www.redhat.com/en/technologies/jboss-middleware/application-platform
 
 	ex: git clone -b web-jboss https://github.com/venkatasykam/DevOpsWebApp
 
-14. configure jboss deploy plugin in maven pom.xml and run the command mvn clean install
+14. configure jboss deploy plugin in maven pom.xml and run the command: mvn clean install
 
 15. go to http://localhost:9990 --> Deployments --> there you should able to see your app.
 

@@ -105,8 +105,8 @@
 				<configuration>
 					<force>true</force>
 					<hostname>localhost</hostname>
-					<username>ramkrishna</username>
-					<password>DevOps#123</password>
+					<username>venkat</username>
+					<password>DevOps@123</password>
 					<port>9990</port>
 					<name>${project.artifactId}.war</name>
 					<fileNames>
