@@ -82,10 +82,10 @@
 			    <configuration>
 						<force>true</force>
 						<hostname>localhost</hostname>
-						<username>ramkrishna</username>
-						<password>DevOps#123</password>
+						<username>venkat</username>
+						<password>DevOps@123</password>
 						<port>9990</port>
-						<jboss-home>local-jboss-home</jboss-home>
+						<jboss-home>local-jboss-home</jboss-home> <!-- <jboss-home>remote-jboss-home</jboss-home> -->
 						<name>${project.build.finalName}.${project.packaging}</name>
 						<filename>${project.build.finalName}.${project.packaging}</filename>
 						<skip>false</skip>
