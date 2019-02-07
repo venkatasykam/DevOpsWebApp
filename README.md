@@ -4,6 +4,8 @@
 
 https://www.redhat.com/en/technologies/jboss-middleware/application-platform
 
+or you can download it from my drive https://drive.google.com/file/d/1orAg2SymZzf_sKmFNbuLeqiaDnkdDPAn/view?usp=sharing
+
 2. Products & services --> Jboss Development & management --> RegHat Jboss Enterprise App Platform
 
 4. Downloads --> select the version 7.1 or any version
