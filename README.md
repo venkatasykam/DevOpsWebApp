@@ -1,5 +1,13 @@
 # DevOpsWebApp : Only a webapp
 
+0. Make sure JAVA is already installed and JAVA_HOME path setup done.
+
+Refer this file to download and install JDK:
+
+REDHAT: https://github.com/DevOpsPlatform/Phase-1/blob/master/Java-Tomcat-maven-git-Jenkins.sh
+
+Ubuntu: https://github.com/DevOpsPlatform/Phase-1/blob/master/java-maven-installtion-on-ubuntu.sh
+
 1. signinin/signup to redhat (search for redhat jboss in google, you will get a link from google suggestion)
 
 https://www.redhat.com/en/technologies/jboss-middleware/application-platform
@@ -10,11 +18,20 @@ https://www.redhat.com/en/technologies/jboss-middleware/application-platform
 
 5. uzip jboss-eap-7.1.0.zip
 
-6. Setup the JBOSS_HOME in environment variables - like C:\Downloads\jboss\jboss-eap-7.1
+6. Setup the JBOSS_HOME in environment variables, which is similar to below
 
-7. open a command prompt at C:\Downloads\jboss\jboss-eap-7.1\bin
+      - windows --> C:\Downloads\jboss\jboss-eap-7.1
+      - linux   --> /root/jboss-eap-7.1
 
-8. run the standalone.bat file
+7. go to bin directory
+
+      - windows --> C:\Downloads\jboss\jboss-eap-7.1\bin
+      - linux   --> /root/jboss-eap-7.1/bin
+
+8. Start the jboss server
+
+      - windows --> standalone.bat
+      - linux   --> standalone.sh
 
 9. Once the server up, you will able to see the below message message in the log
 
