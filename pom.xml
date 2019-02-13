@@ -94,8 +94,8 @@
 					<url>http://localhost:8080/manager/text</url>
 					<update>true</update>
 					<path>/${project.artifactId}-${project.version}</path>
-					<username>tomcat</username>
-					<password>s3cret</password>
+					<username>admin</username>
+					<password>admin_password</password>
 				</configuration>
 			</plugin>
 		</plugins>
