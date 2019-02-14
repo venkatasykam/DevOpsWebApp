@@ -104,9 +104,9 @@
 				<version>1.1.0.Final</version>
 				<configuration>
 					<force>true</force>
-					<hostname>localhost</hostname>
+					<hostname>13.233.247.121</hostname>
 					<username>venkat</username>
-					<password>DevOps@123</password>
+					<password>DevOps#123</password>
 					<port>9990</port>
 					<name>${project.artifactId}.war</name>
 					<fileNames>
@@ -128,7 +128,7 @@
 				<!-- Deploy the application on package -->
 				<execution>
 					<id>deploy</id>
-					<phase>package</phase>
+					<phase>install</phase>
 					<goals>
 						<goal>deploy</goal>
 					</goals>
