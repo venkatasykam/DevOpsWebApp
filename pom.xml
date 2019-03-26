@@ -101,6 +101,7 @@
 			</plugin>
 		</plugins>
 	</build>
+	<!--
 	<repositories>
 		<repository>
 			<id>libs</id>
@@ -139,6 +140,7 @@
 			<url>http://${nexusIp}:8081/nexus/content/repositories/snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
+	-->
 	<profiles>
 		<profile>
 			<id>sonar</id>
