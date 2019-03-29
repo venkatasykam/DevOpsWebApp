@@ -3,7 +3,7 @@
 	<groupId>com.devops.devopswebapp</groupId>
 	<artifactId>DevOpsWebApp</artifactId>
 	<packaging>war</packaging>
-	<version>1.0.0</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<name>${project.artifactId}-${project.version}</name>
 	<properties>
 		<nexusIp>13.234.116.242</nexusIp>
@@ -25,7 +25,7 @@
 		<url>https://github.com/venkatasykam/DevOpsWebApp.git</url>
 		<connection>scm:git:https://github.com/venkatasykam/DevOpsWebApp.git</connection>
 		<developerConnection>scm:git:https://github.com/venkatasykam/DevOpsWebApp.git</developerConnection>
-		<tag>web-DevOpsWebApp-1.0.0</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<dependencies>
