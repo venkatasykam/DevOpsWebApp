@@ -51,41 +51,41 @@ Increase Heap size: -Xmx512m -XX:MaxPermSize=512m
 
 # -------------- Verioning and  Release Process ------ #
 
-snapshot
+	snapshot
 
-release
+	release
 
-pom - 1.0.0-SNAPSHOT
+	pom - 1.0.0-SNAPSHOT
 
-DevOpsWebApp-1.0.0-SNAPSHOT.war - Dev
-DevOpsWebApp-1.0.0.war - QA SIT UAT Prod
+	DevOpsWebApp-1.0.0-SNAPSHOT.war - Dev
+	DevOpsWebApp-1.0.0.war - QA SIT UAT Prod
 
-Dev QA SIT UAT Prod
+	Dev QA SIT UAT Prod
 
-DevOpsWebApp-1.0.0-SNAPSHOT.war - dev --defects
-DevOpsWebApp-1.0.0-SNAPSHOT.war - dev --defects
-DevOpsWebApp-1.0.0-SNAPSHOT.war - dev --defects
-DevOpsWebApp-1.0.0-SNAPSHOT.war - dev --no defects
+	DevOpsWebApp-1.0.0-SNAPSHOT.war - dev --defects
+	DevOpsWebApp-1.0.0-SNAPSHOT.war - dev --defects
+	DevOpsWebApp-1.0.0-SNAPSHOT.war - dev --defects
+	DevOpsWebApp-1.0.0-SNAPSHOT.war - dev --no defects
 
-DevOpsWebApp-1.0.0.war - QA -- defect
-DevOpsWebApp-1.0.1-SNAPSHOT.war - dev -- no defects
-DevOpsWebApp-1.0.1.war - QA -- defect
-DevOpsWebApp-1.0.2-SNAPSHOT.war - dev -- no defects
-DevOpsWebApp-1.0.2.war - QA -- no defects
+	DevOpsWebApp-1.0.0.war - QA -- defect
+	DevOpsWebApp-1.0.1-SNAPSHOT.war - dev -- no defects
+	DevOpsWebApp-1.0.1.war - QA -- defect
+	DevOpsWebApp-1.0.2-SNAPSHOT.war - dev -- no defects
+	DevOpsWebApp-1.0.2.war - QA -- no defects
 
-DevOpsWebApp-1.0.2.war - SIT -- defect
-DevOpsWebApp-1.0.3-SNAPSHOT.war - dev -- no defects
-DevOpsWebApp-1.0.3.war - QA -- no defects
-DevOpsWebApp-1.0.3.war - SIT -- defect
-DevOpsWebApp-1.0.4-SNAPSHOT.war - dev -- no defects
-DevOpsWebApp-1.0.4.war - QA -- no defects
-DevOpsWebApp-1.0.4.war - SIT -- defect
+	DevOpsWebApp-1.0.2.war - SIT -- defect
+	DevOpsWebApp-1.0.3-SNAPSHOT.war - dev -- no defects
+	DevOpsWebApp-1.0.3.war - QA -- no defects
+	DevOpsWebApp-1.0.3.war - SIT -- defect
+	DevOpsWebApp-1.0.4-SNAPSHOT.war - dev -- no defects
+	DevOpsWebApp-1.0.4.war - QA -- no defects
+	DevOpsWebApp-1.0.4.war - SIT -- defect
 
-Git Repo: DevOpsWebApp
+	Git Repo: DevOpsWebApp
 
-	branches
-	tags
-	
+		branches
+		tags
+
 # ----- Maven release plugin execution ----- #
 
 1. clone
