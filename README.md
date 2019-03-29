@@ -49,7 +49,7 @@ Increase Heap size: -Xmx512m -XX:MaxPermSize=512m
 
 # testing git push - jenkins poll scm
 
-# --------------
+# -------------- Verioning and  Release Process ------ #
 
 snapshot
 
@@ -86,14 +86,14 @@ Git Repo: DevOpsWebApp
 	branches
 	tags
 	
-# -----
+# ----- Maven release plugin execution ----- #
 
 1. clone
 
 -V clean -B release:prepare release:perform -Dtag=${gitBranch}-DevOpsWebApp-${releaseVersion} -DreleaseVersion=${releaseVersion} -DdevelopmentVersion=${nextDevelopmentVersion} -Dusername=${gitUname} -Dpassword=${gitPwd}
 
 2. release:prepare
-	update the development version 1.0.0-SNAOSHOT to release version 1.0.0 (using git credentials)
+	update the development version 1.0.0-SNAPSHOT to release version 1.0.0 (using git credentials)
 	validate, compile, test, package, verify
 	create and push a tag on git repo (using git credentials)
 	revert the version from release version 1.0.0 to next development version 1.0.1-SNAPSHOT (using git credentials)
