@@ -127,7 +127,7 @@
 			<url>http://${nexusIp}:8081/nexus/content/artifactory/libs-release</url>
         </pluginRepository>
     </pluginRepositories>
-	
+	-->
 	<distributionManagement>
 		<repository>
 			<id>deployment</id>
@@ -140,7 +140,7 @@
 			<url>http://${nexusIp}:8081/nexus/content/repositories/snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
-	-->
+	
 	<profiles>
 		<profile>
 			<id>sonar</id>
