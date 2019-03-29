@@ -48,3 +48,58 @@ Increase Heap size: -Xmx512m -XX:MaxPermSize=512m
 	 block wise
 
 # testing git push - jenkins poll scm
+
+# --------------
+
+snapshot
+
+release
+
+pom - 1.0.0-SNAPSHOT
+
+DevOpsWebApp-1.0.0-SNAPSHOT.war - Dev
+DevOpsWebApp-1.0.0.war - QA SIT UAT Prod
+
+Dev QA SIT UAT Prod
+
+DevOpsWebApp-1.0.0-SNAPSHOT.war - dev --defects
+DevOpsWebApp-1.0.0-SNAPSHOT.war - dev --defects
+DevOpsWebApp-1.0.0-SNAPSHOT.war - dev --defects
+DevOpsWebApp-1.0.0-SNAPSHOT.war - dev --no defects
+
+DevOpsWebApp-1.0.0.war - QA -- defect
+DevOpsWebApp-1.0.1-SNAPSHOT.war - dev -- no defects
+DevOpsWebApp-1.0.1.war - QA -- defect
+DevOpsWebApp-1.0.2-SNAPSHOT.war - dev -- no defects
+DevOpsWebApp-1.0.2.war - QA -- no defects
+
+DevOpsWebApp-1.0.2.war - SIT -- defect
+DevOpsWebApp-1.0.3-SNAPSHOT.war - dev -- no defects
+DevOpsWebApp-1.0.3.war - QA -- no defects
+DevOpsWebApp-1.0.3.war - SIT -- defect
+DevOpsWebApp-1.0.4-SNAPSHOT.war - dev -- no defects
+DevOpsWebApp-1.0.4.war - QA -- no defects
+DevOpsWebApp-1.0.4.war - SIT -- defect
+
+Git Repo: DevOpsWebApp
+
+	branches
+	tags
+	
+# -----
+
+1. clone
+
+-V clean -B release:prepare release:perform -Dtag=${gitBranch}-DevOpsWebApp-${releaseVersion} -DreleaseVersion=${releaseVersion} -DdevelopmentVersion=${nextDevelopmentVersion} -Dusername=${gitUname} -Dpassword=${gitPwd}
+
+2. release:prepare
+	update the development version 1.0.0-SNAOSHOT to release version 1.0.0 (using git credentials)
+	validate, compile, test, package, verify
+	create and push a tag on git repo (using git credentials)
+	revert the version from release version 1.0.0 to next development version 1.0.1-SNAPSHOT (using git credentials)
+	
+	Internally: Maven release plugin verifies the depednencies are released or not. Make sue all the depdencies are releases version. Maven release build will be failed if any of the dependency version is SNAPSHOT. The same thing will be appalicable to maven plugins.
+
+3. release:perform
+	checkout the tag
+	validate, compile, test, package, verify, install, deploy(to nexus)
