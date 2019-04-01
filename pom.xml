@@ -4,7 +4,7 @@
 	<artifactId>DevOpsWebApp</artifactId>
 	<packaging>war</packaging>
 	<version>${releaseVersion}</version>
-	<name>${project.artifactId}-${releaseVersion}</name>
+	<name>${project.artifactId}</name>
 	<properties>
 		<nexusIp>13.234.116.242</nexusIp>
 		<jnuit.version>4.12</jnuit.version>
