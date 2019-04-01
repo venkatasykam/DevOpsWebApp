@@ -1,3 +1,5 @@
+echo "jenkins parameter: ${params.releaseVersion}"
+
 node{
 	stage('checkout'){
 		checkout scm
