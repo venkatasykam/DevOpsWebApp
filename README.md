@@ -1,6 +1,6 @@
 # DevOpsWebApp : Only a webapp
 
-mvn clean package
+mvn -V clean package
 
 mvn clean verify
 
