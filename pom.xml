@@ -13,12 +13,12 @@
 		<!-- <argLine>-XX:MaxPermSize=512m</argLine> -->
 		<maven.compiler.source>1.6</maven.compiler.source>
     		<maven.compiler.target>1.6</maven.compiler.target>
-		<sonar.jdbc.url>jdbc:postgresql://18.217.28.35/sonar</sonar.jdbc.url>
+		<sonar.jdbc.url>jdbc:postgresql://13.127.98.254/sonar</sonar.jdbc.url>
 		<sonar.jdbc.driver>org.postgresql.Driver</sonar.jdbc.driver>
 		<sonar.jdbc.username>sonar</sonar.jdbc.username>
 		<sonar.jdbc.password>sonar</sonar.jdbc.password>
 		<!-- SERVER ON A REMOTE HOST -->
-		<sonar.host.url>http://18.217.28.35:9000</sonar.host.url>
+		<sonar.host.url>http://13.127.98.254:9000</sonar.host.url>
 	</properties>
 
 	<scm>
