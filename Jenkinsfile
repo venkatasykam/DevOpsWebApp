@@ -33,7 +33,7 @@ node("build"){
 			ssh ec2-user@54.83.129.213 rm -rf $HOME/tomcat9/webapps/DevOpsWebApp*
 			
 			#Deploy(copy) war to tomcat server
-			scp target/DevOpsWebApp.war ec2-user@54.83.129.213:$HOME/tomcat9/webapps/
+			scp target/DevOpsWebApp*.war ec2-user@54.83.129.213:$HOME/tomcat9/webapps/
 
 		'''
 		/*
