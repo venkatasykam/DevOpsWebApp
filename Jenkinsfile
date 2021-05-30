@@ -1,15 +1,21 @@
-//echo "jenkins parameter: ${params.releaseVersion}"
+/*
+1. Setup Maven path in Manage Jenkins >>  Global Tool Configuration >> under Maven >> 
+	Name: maven-3.8.1
+	Value: maven home path (ex: /usr/lib/maven/apache-maven-3.8.1)
+2. Setup Git path in Manage Jenkins >>  Global Tool Configuration >> under Git >> 
+	Name: Default
+	Value: Git home path (ex: /usr/bin/git )
+3. Make sure jenkins master or node have the lable - build. (OR) update the lable name you want in the below code.
+*/
 
-//def mvnHome = tool 'maven-3.8.1'
 
 node("build"){
 	stage('checkout'){
 		checkout scm
 	}
 	stage('compile'){
-		//sh '"/root/apache-maven-3.5.4/bin/mvn" -V clean compile'
 		
-		sh"${tool 'maven-3.8.1'}/bin/mvn -V clean compile"
+		sh"${tool 'maven-3.8.1'}/bin/mvn -V clean compile -DreleaseVersion=1.0.${BUILD_NUMBER}"
 	}
 	stage('junit test'){
 		sh"${tool 'maven-3.8.1'}/bin/mvn -V clean test"
