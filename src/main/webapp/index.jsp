@@ -13,7 +13,7 @@
 		<br/><br/>
 		<table width="59%" border="1" align="center">
 			<tr><th colspan="3">Various Tools which are suporting to DevOps</th></tr>
-			<tr><td>S.No.</td><td>Type</td><td>Tool Name</td></tr>
+			<tr><td><b>S.No.</b></td><td>Type</td><td>Tool Name</td></tr>
 			<tr><td>1</td><td>Build Tools</td><td>Java: Ant with ivy, Maven, Gradle etc. || .net: NAnt, MS-Build etc.</td></tr>
 			<tr><td>2</td><td>Version Control(i.e., code repository) tools</td><td>SVN, GitHub, Bitbucket, GitLab, RTC, TFS, Gerrit etc.</td></tr>
 			<tr><td>3</td><td>CI/CD tools</td><td>Jenkins and other similar popular tools TeamCity, Bamboo etc.</td></tr>
