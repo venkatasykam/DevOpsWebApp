@@ -2,7 +2,7 @@
 
 mvn -V clean package
 
-mvn clean verify
+mvn clean verify -B
 
 mvn clean test
 
