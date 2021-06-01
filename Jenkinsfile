@@ -37,19 +37,19 @@ pipeline{
 		}
 		stage('Deploy') {
 			steps{
-				println 'deploy the package to tomcat server ${SERVER_IP} to run application'
-				bat'''
+				println "deploy the package to tomcat server ${SERVER_IP} to run application"
+				bat"""
 					echo deploy the package to tomcat server ${SERVER_IP} to run application
-				'''
+				"""
 				/*
-				sh'''
+				sh"""
 					echo "Removing the existing package from tomcat server"
 					ssh ec2-user@$SERVER_IP rm -rf $HOME/tomcat9/webapps/DevOpsWebApp*
 
 					echo "Deploy(copy) war to tomcat server"
 					scp target/DevOpsWebApp*.war ec2-user@$SERVER_IP:$HOME/tomcat9/webapps/
 
-				'''
+				"""
 				*/
 			}
 		}
