@@ -37,9 +37,9 @@ pipeline{
 		}
 		stage('Deploy') {
 			steps{
-				println 'deploy the package to tomcat server $SERVER_IP to run application'
+				println 'deploy the package to tomcat server ${SERVER_IP} to run application'
 				bat'''
-					echo deploy the package to tomcat server $SERVER_IP to run application
+					echo deploy the package to tomcat server ${SERVER_IP} to run application
 				'''
 				/*
 				sh'''
