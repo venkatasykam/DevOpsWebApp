@@ -8,45 +8,54 @@
 3. Make sure jenkins master or node have the lable - build. (OR) update the lable name you want in the below code.
 */
 
-
-node("build"){
-	stage('checkout'){
-		checkout scm
+pipeline{
+	agent{
+		label 'build'
 	}
-	stage('compile'){
+	options{
+		disableConcurrentBuilds()
+	}
+	parameters{
+		string(name: 'buildVersion', defaultValue: '1.0.${BUILD_NUMBER}', description: '')
+		string(name: 'ServerIP', defaultValue: '', description: '')
+	}
+	tools{
+		maven 'apache-maven-3.8.1' //Make sure this is already configured in Manage Jenkins >> Global Tool Configuration
+	}
+	environment{
+		BUILD_VERSION = ${params.buildVersion}
+		SERVER_IP = ${params.ServerIP}
+	}
+	stages {
+		stage('Build') {
+			steps{
+				sh"mvn -V -B clean install -DreleaseVersion=${BUILD_VERSION}"
+			}
+		}
+		stage('Deploy') {
+			steps{
+				println 'deploy the package to tomcat server $SERVER_IP to run application'
+				sh'''
+					echo deploy the package to tomcat server $SERVER_IP to run application
+				'''
+				/*
+				sh'''
+					echo "Removing the existing package from tomcat server"
+					ssh ec2-user@$SERVER_IP rm -rf $HOME/tomcat9/webapps/DevOpsWebApp*
+
+					echo "Deploy(copy) war to tomcat server"
+					scp target/DevOpsWebApp*.war ec2-user@$SERVER_IP:$HOME/tomcat9/webapps/
+
+				'''
+				*/
+			}
+		}
 		
-		sh"${tool 'maven-3.8.1'}/bin/mvn -V clean compile -DreleaseVersion=1.0.${BUILD_NUMBER}"
 	}
-	stage('junit test'){
-		sh"${tool 'maven-3.8.1'}/bin/mvn -V clean test -DreleaseVersion=1.0.${BUILD_NUMBER}"
-	}
-	stage('deploy-to-nexus'){
-    		print 'deploy the package to nexus'
-		sh"${tool 'maven-3.8.1'}/bin/mvn -V clean package -DreleaseVersion=1.0.${BUILD_NUMBER}" //this command is not deploying to nexus, install nexus and update the command to deploy
-		//sh '"/root/apache-maven-3.5.4/bin/mvn" -V clean deploy'
-	}
-	stage('deploy-to-tomcat'){
-		print 'deploy the package to tomcat server to run application'
-		
-		sh'''
-			echo "Removing the existing package from tomcat server"
-			ssh ec2-user@3.89.232.247 rm -rf $HOME/tomcat9/webapps/DevOpsWebApp*
-			
-			echo "Deploy(copy) war to tomcat server"
-			scp target/DevOpsWebApp*.war ec2-user@3.89.232.247:$HOME/tomcat9/webapps/
-
-		'''
-		/*
-		sh '''
-			echo Deploy the war to tomcat server.
-
-			echo Step-1: Removing the existing package
-			rm -rf /root/tomcat7/webapps/DevOpsWebApp-*.war
-			rm -rf /root/tomcat7/webapps/DevOpsWebApp-*
-
-			echo Step-2: Staging the new package to tomcat server.
-			cp ${WORKSPACE}/target/DevOpsWebApp-*.war /root/tomcat7/webapps
-		'''
-		*/
+	post {
+		failure {
+			println 'Sending an email notification about build failures'
+			//emailext 
+		}
 	}
 }
