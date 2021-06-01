@@ -20,7 +20,7 @@ pipeline{
 		string(name: 'ServerIP', defaultValue: '', description: '')
 	}
 	tools{
-		maven 'apache-maven-3.8.1' //Make sure this is already configured in Manage Jenkins >> Global Tool Configuration
+		maven 'maven-3.8.1' //Make sure this is already configured in Manage Jenkins >> Global Tool Configuration
 	}
 	environment{
 		
