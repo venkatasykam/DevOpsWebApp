@@ -32,13 +32,13 @@ pipeline{
 	stages {
 		stage('Build') {
 			steps{
-				sh"mvn -V -B clean install -DreleaseVersion=${BUILD_VERSION}"
+				bat"mvn -V -B clean install -DreleaseVersion=${BUILD_VERSION}"
 			}
 		}
 		stage('Deploy') {
 			steps{
 				println 'deploy the package to tomcat server $SERVER_IP to run application'
-				sh'''
+				bat'''
 					echo deploy the package to tomcat server $SERVER_IP to run application
 				'''
 				/*
