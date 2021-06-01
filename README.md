@@ -4,7 +4,7 @@ mvn -V -B clean package
 
 mvn clean verify -B
 
-mvn clean test
+mvn clean test -B
 
 mvn clean install
 
