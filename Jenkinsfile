@@ -32,6 +32,7 @@ pipeline{
 	stages {
 		stage('Build') {
 			steps{
+				println scmUrl
 				bat"mvn -V -B clean install -DreleaseVersion=${BUILD_VERSION}"
 			}
 		}
