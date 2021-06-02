@@ -32,9 +32,11 @@ pipeline{
 	stages {
 		stage('Build') {
 			steps{
-				def scmUrl = scm.getUserRemoteConfigs()[0].getUrl()
-				println scmUrl
-				bat"mvn -V -B clean install -DreleaseVersion=${BUILD_VERSION}"
+				script{
+					def scmUrl = scm.getUserRemoteConfigs()[0].getUrl()
+					println scmUrl
+				}
+					bat"mvn -V -B clean install -DreleaseVersion=${BUILD_VERSION}"
 			}
 		}
 		stage('Deploy') {
