@@ -33,6 +33,8 @@ pipeline{
 		stage('Build') {
 			steps{
 				script{
+					println "scm:"
+					println scm
 					def scmUrl = scm.getUserRemoteConfigs()[0].getUrl()
 					println scmUrl
 				}
