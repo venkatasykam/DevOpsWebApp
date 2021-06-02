@@ -33,9 +33,9 @@ pipeline{
 		stage('Build') {
 			steps{
 				script{
-					println "scm:"
-					println scm
+
 					def scmUrl = scm.getUserRemoteConfigs()[0].getUrl()
+					println "Git URL: "
 					println scmUrl
 				}
 					bat"mvn -V -B clean install -DreleaseVersion=${BUILD_VERSION}"
