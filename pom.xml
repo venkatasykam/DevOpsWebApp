@@ -19,7 +19,6 @@
 		<sonar.jdbc.password>sonar</sonar.jdbc.password>-->
 		<!-- SERVER ON A REMOTE HOST -->
 		<sonar.host.url>http://54.242.163.17:9000</sonar.host.url>
-		<sonar.projectKey>devopsapp</sonar.projectKey>
 	</properties>
 
 	<scm>
@@ -100,11 +99,11 @@
 					<password>admin_password</password> -->
 				</configuration>
 			</plugin>
-			<plugin>
+			<!--<plugin>
 			    <groupId>org.codehaus.mojo</groupId>
 			    <artifactId>sonar-maven-plugin</artifactId>
 			    <version>3.7.0.1746</version>
-			</plugin>
+			</plugin>-->
 			<plugin>
 			    <groupId>org.apache.maven.plugins</groupId>
 			    <artifactId>maven-compiler-plugin</artifactId>
