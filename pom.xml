@@ -18,7 +18,7 @@
 		<sonar.jdbc.username>sonar</sonar.jdbc.username>
 		<sonar.jdbc.password>sonar</sonar.jdbc.password>-->
 		<!-- SERVER ON A REMOTE HOST -->
-		<sonar.host.url>http://54.242.163.17/:9000</sonar.host.url>
+		<sonar.host.url>http://54.242.163.17:9000</sonar.host.url>
 		<sonar.projectKey>devopsapp</sonar.projectKey>
 	</properties>
 
