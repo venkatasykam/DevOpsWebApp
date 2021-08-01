@@ -11,8 +11,6 @@
 		<project.scm.id>github</project.scm.id>
 		<!-- <github.global.server>github</github.global.server> -->
 		<!-- <argLine>-XX:MaxPermSize=512m</argLine> -->
-		<maven.compiler.source>1.6</maven.compiler.source>
-    		<maven.compiler.target>1.6</maven.compiler.target>
 		<!--<sonar.jdbc.url>jdbc:postgresql://52.66.206.67/sonar</sonar.jdbc.url>
 		<sonar.jdbc.driver>org.postgresql.Driver</sonar.jdbc.driver>
 		<sonar.jdbc.username>sonar</sonar.jdbc.username>
