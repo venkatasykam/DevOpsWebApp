@@ -18,5 +18,36 @@ public class WelcomeServlet extends HttpServlet {
 			  
 		out.close();  
 	}  
-  
+	
+	public void meth1(){
+		System.out.println("meth1");
+	}
+	public void meth2(){
+		System.out.println("meth1");
+	}
+	public void meth3(){
+		System.out.println("meth1");
+	}
+	public void meth4(){
+		System.out.println("meth1");
+	}
+	public void meth5(){
+		System.out.println("meth1");
+	}
+	public void meth6(){
+		System.out.println("meth1");
+	}
+	public void meth7(){
+		System.out.println("meth1");
+	}
+	public void meth8(){
+		System.out.println("meth1");
+	}
+	public void meth9(){
+		System.out.println("meth1");
+	}
+	public void meth10(){
+		System.out.println("meth1");
+	}
+	
 }  
