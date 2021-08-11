@@ -8,8 +8,8 @@
 	<properties>
 		<nexusIp>13.234.116.242</nexusIp>
 		<jnuit.version>4.12</jnuit.version>
-		<project.scm.id>github</project.scm.id>
-		<!-- <github.global.server>github</github.global.server> -->
+		<!-- <project.scm.id>github</project.scm.id>
+		<github.global.server>github</github.global.server> -->
 		<!-- <argLine>-XX:MaxPermSize=512m</argLine> -->
 		<!--<sonar.jdbc.url>jdbc:postgresql://52.66.206.67/sonar</sonar.jdbc.url>
 		<sonar.jdbc.driver>org.postgresql.Driver</sonar.jdbc.driver>
@@ -18,14 +18,14 @@
 		<!-- SERVER ON A REMOTE HOST -->
 		<sonar.host.url>http://3.85.190.82:9000</sonar.host.url>
 	</properties>
-
+	<!-- 
 	<scm>
 		<url>https://github.com/venkatasykam/DevOpsWebApp.git</url>
 		<connection>scm:git:https://github.com/venkatasykam/DevOpsWebApp.git</connection>
 		<developerConnection>scm:git:https://github.com/venkatasykam/DevOpsWebApp.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
-
+	-->
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
