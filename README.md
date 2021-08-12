@@ -61,5 +61,6 @@ http://localhost:9990/
 	URL (as per the above example): http://localhost:8080/DevOpsWebAppEAR-web
 
 
+![image](https://user-images.githubusercontent.com/24622526/129152060-d5bd052f-1109-49de-b876-b1ca424c2d93.png)
 
 
