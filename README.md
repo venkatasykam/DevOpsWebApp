@@ -35,13 +35,26 @@ or you can download it from my drive https://drive.google.com/file/d/1orAg2SymZz
 
 12. launch the URL again in the browser: http://localhost:9990, this time it will ask you to entrer login creds.
 
+
+![image](https://user-images.githubusercontent.com/24622526/129149293-89269e68-ed4b-4135-a92f-a7dcde03a23d.png)
+
+
+
 13. git clone or download a ear app from https://github.com/venkatasykam/DevOpsWebApp
 
 	ex: git clone -b ear-jboss https://github.com/venkatasykam/DevOpsWebApp
 
-14. configure jboss deploy plugin in maven pom.xml and run the command mvn clean install
+14. configure jboss deploy plugin in ear module *DevOpsWebAppEAR-ear/pom.xml* and run the command **mvn clean install**
+
+![image](https://user-images.githubusercontent.com/24622526/129149410-bc513433-756f-4630-b23f-ab82b4ce410b.png)
+
 
 15. After the build, and deploy, go to management console --> Deployments --> there you will see the deployed artifact details.
+
+http://localhost:9990/
+
+![image](https://user-images.githubusercontent.com/24622526/129149610-72bf0fca-3985-4840-9298-e13e4543718e.png)
+
 
 16. Run the application using the web context(This you can see it in the jboss server log console): 
 
