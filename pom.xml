@@ -6,7 +6,7 @@
 	<version>${releaseVersion}</version>
 	<name>${project.artifactId}</name>
 	<properties>
-		<nexusIp>13.234.116.242</nexusIp>
+		<nexusIp>18.119.125.175</nexusIp>
 		<jnuit.version>4.12</jnuit.version>
 		<!-- <project.scm.id>github</project.scm.id>
 		<github.global.server>github</github.global.server> -->
