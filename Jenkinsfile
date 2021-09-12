@@ -9,7 +9,7 @@ pipeline {
         stage('Build') {
 
             steps {
-                sh 'mvn -V -B clean install'
+		    sh 'mvn -V -B clean install -DreleaseVersion=1.0'
             }
         }
     }
