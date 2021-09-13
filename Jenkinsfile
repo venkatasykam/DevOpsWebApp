@@ -16,3 +16,25 @@ node {
 		}
 	}
 }
+
+
+/*    OR
+
+node {
+	stage("code checkout"){
+		
+		checkout scm
+	}
+	stage("Build"){
+	
+		def mavenImage = docker.image("maven:3.8.1-adoptopenjdk-11")
+		
+		mavenImage.inside {
+
+			sh 'mvn -V -B clean install -DreleaseVersion=1.0.${BUILD_NUMBER}'
+
+		}
+	}
+}
+
+*/
