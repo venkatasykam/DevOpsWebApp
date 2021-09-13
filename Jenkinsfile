@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-		    sh 'mvn -V -B clean verify -DreleaseVersion=1.0.${BUILD_NUMBER}'
+		    sh 'mvn -V -B clean install -DreleaseVersion=1.0.${BUILD_NUMBER}'
             }
         }
     }
