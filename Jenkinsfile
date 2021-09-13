@@ -6,7 +6,7 @@ Find more info - https://github.com/DevOpsOnlineTraining-2021/Docker/blob/main/J
 node {
     checkout scm
 
-    docker.withRegistry('http://50.19.128.197:8083/repository/my-docker-repo/', 'jenkinsnexus') {
+    docker.withRegistry('http://50.19.128.197:8081/repository/docker-hosted/', 'jenkinsnexus') {
 
         def customImage = docker.build("my-image:${env.BUILD_ID}")
 
