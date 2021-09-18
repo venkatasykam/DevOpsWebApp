@@ -9,7 +9,7 @@ node {
 		checkout scm
 	}
 	stage("Build"){
-		docker.image("maven:3.8.1-adoptopenjdk-11").inside { c ->
+		docker.image("maven:3.8.1-adoptopenjdk-11").withRun('-v /root/.m2:/root/.m2').inside { c ->
 
 			sh 'mvn -V -B clean install -DreleaseVersion=1.0.${BUILD_NUMBER}'
 
