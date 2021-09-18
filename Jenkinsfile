@@ -22,12 +22,12 @@ node("build"){
 	}
 	stage('deploy-to-nexus'){
     		print 'deploy the package to nexus'
-		sh"${tool 'maven-3.8.1'}/bin/mvn -V clean package -DreleaseVersion=1.0.${BUILD_NUMBER}" //this command is not deploying to nexus, install nexus and update the command to deploy
+		//sh"${tool 'maven-3.8.1'}/bin/mvn -V clean package -DreleaseVersion=1.0.${BUILD_NUMBER}" //this command is not deploying to nexus, install nexus and update the command to deploy
 		//sh '"/root/apache-maven-3.5.4/bin/mvn" -V clean deploy'
 	}
 	stage('deploy-to-tomcat'){
-		print 'deploy the package to tomcat server to run application'
-		
+		println 'deploy the package to tomcat server to run application'
+		/*
 		sh'''
 			echo "Removing the existing package from tomcat server"
 			ssh ec2-user@3.89.232.247 rm -rf $HOME/tomcat9/webapps/DevOpsWebApp*
@@ -36,6 +36,7 @@ node("build"){
 			scp target/DevOpsWebApp*.war ec2-user@3.89.232.247:$HOME/tomcat9/webapps/
 
 		'''
+		*/
 		/*
 		sh '''
 			echo Deploy the war to tomcat server.
