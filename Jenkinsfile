@@ -6,6 +6,7 @@
 	Name: Default
 	Value: Git home path (ex: /usr/bin/git )
 3. Make sure jenkins master or node have the lable - build. (OR) update the lable name you want in the below code.
+4. Setup ssh connection with the help of doc- https://github.com/DevOpsOnlineTraining-2021/Linux/blob/master/Practice-2/Practice-2.3.md
 */
 
 
