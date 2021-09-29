@@ -27,17 +27,18 @@ node("build"){
 		//sh '"/root/apache-maven-3.5.4/bin/mvn" -V clean deploy'
 	}
 	stage('deploy-to-tomcat'){
+		
 		println 'deploy the package to tomcat server to run application'
-		/*
+		
 		sh'''
 			echo "Removing the existing package from tomcat server"
-			ssh ec2-user@3.89.232.247 rm -rf $HOME/tomcat9/webapps/DevOpsWebApp*
+			ssh deploy@65.0.107.66 rm -rf /usr/bin/apache-tomcat-9.0.53/webapps/DevOpsWebApp*
 			
 			echo "Deploy(copy) war to tomcat server"
-			scp target/DevOpsWebApp*.war ec2-user@3.89.232.247:$HOME/tomcat9/webapps/
+			scp target/DevOpsWebApp*.war deploy@65.0.107.66:/usr/bin/apache-tomcat-9.0.53/webapps/
 
 		'''
-		*/
+		
 		/*
 		sh '''
 			echo Deploy the war to tomcat server.
