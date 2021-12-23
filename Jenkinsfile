@@ -23,7 +23,7 @@ node("build"){
 	}
 	stage('deploy-to-nexus'){
     		println 'deploy the package to nexus'
-		sh"${tool 'maven-3.8.1'}/bin/mvn -V clean deploy -DreleaseVersion=1.0.${BUILD_NUMBER}" //this command is not deploying to nexus, install nexus and update the command to deploy
+		sh"${tool 'maven-3.8.1'}/bin/mvn -V clean install -DreleaseVersion=1.0.${BUILD_NUMBER}" //this command is not deploying to nexus, install nexus and update the command to deploy
 		//sh '"/root/apache-maven-3.5.4/bin/mvn" -V clean deploy'
 	}
 	stage('deploy-to-tomcat'){
@@ -32,10 +32,10 @@ node("build"){
 		
 		sh'''
 			echo "Removing the existing package from tomcat server"
-			ssh deploy@65.0.107.66 rm -rf /usr/bin/apache-tomcat-9.0.53/webapps/DevOpsWebApp*
+			#ssh deploy@65.0.107.66 rm -rf /usr/bin/apache-tomcat-9.0.53/webapps/DevOpsWebApp*
 			
 			echo "Deploy(copy) war to tomcat server"
-			scp target/DevOpsWebApp*.war deploy@65.0.107.66:/usr/bin/apache-tomcat-9.0.53/webapps/
+			#scp target/DevOpsWebApp*.war deploy@65.0.107.66:/usr/bin/apache-tomcat-9.0.53/webapps/
 
 		'''
 		
