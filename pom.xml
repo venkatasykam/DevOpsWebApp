@@ -16,7 +16,7 @@
 		<sonar.jdbc.username>sonar</sonar.jdbc.username>
 		<sonar.jdbc.password>sonar</sonar.jdbc.password>-->
 		<!-- SERVER ON A REMOTE HOST -->
-		<sonar.host.url>http://3.85.190.82:9000</sonar.host.url>
+		<sonar.host.url>http://18.144.42.221:9000</sonar.host.url>
 	</properties>
 	<!-- 
 	<scm>
