@@ -9,27 +9,24 @@
 */
 
 
-node any {
+node {
 	stage('checkout'){
-		git branch: '${BRANCH_NAME}',
-    credentialsId: 'venkat0007',
-    url: 'https://github.com/venkat0007/DevOpsWebApp-1.git'
+		checkout scm
 	}
 	stage('compile'){
 		
-		sh"${tool 'maven-3.8.1'}/bin/mvn -V clean compile -DreleaseVersion=1.0.${BUILD_NUMBER}"
+		sh"mvn -V clean compile"
 	}
 	stage('junit test'){
-		sh"${tool 'maven-3.8.1'}/bin/mvn -V clean test -DreleaseVersion=1.0.${BUILD_NUMBER}"
+		sh"mvn -V clean test"
 	}
-	stage('deploy-to-nexus'){
-    		print 'deploy the package to nexus'
-		sh"${tool 'maven-3.8.1'}/bin/mvn -V clean package -DreleaseVersion=1.0.${BUILD_NUMBER}" //this command is not deploying to nexus, install nexus and update the command to deploy
-		//sh '"/root/apache-maven-3.5.4/bin/mvn" -V clean deploy'
+	stage('create a package'){
+    		sh "mvn -V clean package"
 	}
+	
 	stage('deploy-to-tomcat'){
 		print 'deploy the package to tomcat server to run application'
-		
+		/*
 		sh'''
 			echo "Removing the existing package from tomcat server"
 			ssh ec2-user@3.89.232.247 rm -rf $HOME/tomcat9/webapps/DevOpsWebApp*
@@ -38,17 +35,16 @@ node any {
 			scp target/DevOpsWebApp*.war ec2-user@3.89.232.247:$HOME/tomcat9/webapps/
 
 		'''
-		/*
+		*/
 		sh '''
 			echo Deploy the war to tomcat server.
 
 			echo Step-1: Removing the existing package
-			rm -rf /root/tomcat7/webapps/DevOpsWebApp-*.war
-			rm -rf /root/tomcat7/webapps/DevOpsWebApp-*
+			rm -rf /root/apache-tomcat-9.0.62/webapps/DevOpsWebApp-*.war
+			rm -rf /root/apache-tomcat-9.0.62/webapps/DevOpsWebApp-*
 
 			echo Step-2: Staging the new package to tomcat server.
-			cp ${WORKSPACE}/target/DevOpsWebApp-*.war /root/tomcat7/webapps
-		'''
-		*/
+			cp ${WORKSPACE}/target/DevOpsWebApp-*.war /root/apache-tomcat-9.0.62/webapps '''
+		
 	}
 }
