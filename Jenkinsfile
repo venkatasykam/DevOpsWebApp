@@ -10,9 +10,11 @@
 */
 
 
-node("build"){
+node any {
 	stage('checkout'){
-		checkout scm
+		git branch: '${BRANCH_NAME}',
+    credentialsId: 'venkat0007',
+    url: 'https://github.com/venkat0007/DevOpsWebApp-1.git'
 	}
 	stage('compile'){
 		
