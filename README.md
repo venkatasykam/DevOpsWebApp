@@ -58,3 +58,7 @@ az account set --subscription dd4206d4-849d-4947-99e4-b679452a0bee
 az webapp deploy --resource-group my-lin-rg-03-oct --name my-maven-webapp-oct-2022 --src-path DevOpsWebApp-1.0.war --type war --async true
 
 ```
+
+Access the application enpoint url: https://my-maven-webapp-oct-2022.azurewebsites.net/
+
+
