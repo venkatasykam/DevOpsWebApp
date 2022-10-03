@@ -31,5 +31,23 @@ PATH="$M2_HOME/bin:$PATH"
 mvn -v
 ```
 
+**Clone and build**: 
+
+```
+git clone -b azure-webapp https://github.com/venkatasykam/DevOpsWebApp.git
+
+mvn clean -V -B package -DreleaseVersion=1.0.0
+```
+
+**Create azure webapp service**
+
+```
+subscription: free trail
+app service name: my-maven-webapp-oct-2022
+runtime stack: java 8
+java webserver stack: apache tomcat 9
+region: central us
+Sku and size: Basic B1 (100 total ACU, 1.75 GB memory)
+```
 
 
