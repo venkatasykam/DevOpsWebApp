@@ -61,4 +61,10 @@ az webapp deploy --resource-group my-lin-rg-03-oct --name my-maven-webapp-oct-20
 
 Access the application enpoint url: https://my-maven-webapp-oct-2022.azurewebsites.net/
 
+**Delete AZURE resources**:
 
+``` 
+az group delete {resource-name}
+az group delete --name  my-lin-rg-03-oct
+
+```
